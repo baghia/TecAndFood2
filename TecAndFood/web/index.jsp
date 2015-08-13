@@ -17,7 +17,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Sab Representações <%= Sistema.versao %></title>
+        <title>Tec And Food <%= Sistema.versao %></title>
         <link href="images/favicon.png" type="image/png" rel="icon">
         <link href="images/favicon.png" type="image/png" rel="shortcut icon">
         <script src="js/jquery.min.js"></script>
