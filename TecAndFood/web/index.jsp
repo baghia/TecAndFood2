@@ -6,8 +6,8 @@
     } else {
         e = Integer.parseInt(erro);
     }
-    String location="";
-    if(request.getParameter("location") != null){
+    String location = "";
+    if (request.getParameter("location") != null) {
         location = request.getParameter("location");
         System.out.println(location);
     }
@@ -17,7 +17,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Tec And Food <%= Sistema.versao %></title>
+        <title>Tec And Food <%= Sistema.versao%></title>
         <link href="images/favicon.png" type="image/png" rel="icon">
         <link href="images/favicon.png" type="image/png" rel="shortcut icon">
         <script src="js/jquery.min.js"></script>
@@ -30,9 +30,30 @@
             function fecharLightbox() {
                 $("lightbox").fadeOut('fast');
             }
+            function Verificar() {   // Verificação das Teclas  
+                var tecla = window.event.keyCode;
+                var ctrl = window.event.ctrlKey;    //  Para Controle da Tecla CTRL  
+
+                if (ctrl && tecla == 106)    //Evita teclar ctrl + j  
+                {
+                    event.keyCode = 116;
+                    event.returnValue = false;
+                    alert("ctrl j");
+                }
+            }
+            $(document).keydown(function(e) {
+                if ((e.which == 74) && (e.ctrlKey || e.metaKey)) {
+                    alert("ctrl j");
+                    e.preventDefault();
+                }
+            })
             $(document).ready(function() {
                 $(".alert fechar").click(function() {
                     $(this).parent().fadeOut('fast');
+                });
+                $("[name=formulario]").submit(function(e) {
+                    alert("Submit");
+                    e.preventDefault();
                 });
             });
         </script>
@@ -59,8 +80,8 @@
     <content>
         <div class="col-lg-8 col-sm-8">
             <h1>Entrar no sistema</h1>
-            <form method="post" action="Login">
-                <input type="text" name="username" placeholder="Nome de usuário" required autocomplete="off" autofocus>
+            <form method="post" action="Login" name="formulario">
+                <input type="text" name="username" placeholder="Nome de usuário" required autocomplete="off" autofocus onkeydown="Verificar()">
                 <div class="cleaner h10"></div>
                 <input type="password" name="senha" placeholder="Senha" required autocomplete="off">
                 <div class="cleaner h10"></div>
