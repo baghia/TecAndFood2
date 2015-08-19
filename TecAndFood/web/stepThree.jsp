@@ -20,7 +20,6 @@
             <div class="container">
                 <div id="content" class="center card" style="position: absolute; padding: 10px;" >
                     <div class="row ">
-                        <form class="col s12">
                             <div class="row">
                                 <div class="input-field col l2 s2 m2 offset-l5 offset-s5 offset-m5">
                                     <input id="codigo" type="text" placeholder="Informe o código" class="validate" name="codigo" autofocus="true">
@@ -40,8 +39,6 @@
                                 <button id="bt4" class="btn waves-effect waves-light btn-large btn-active" type="button" name="action">Maçã</button>
                             </div>
 
-
-                        </form>
 
                         <div class="row">
                             <button id="submit" class="btn waves-effect waves-light" type="button" name="action">Confirmar</button>

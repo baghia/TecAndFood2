@@ -58,7 +58,6 @@ $(document).ready(function () {
             url: "inserir.jsp",
             data: {codigo: codigo, alimentos_selecionados: alimentos_selecionados}
         });
-        
         request.done(function (msg) {
             alert("Data Saved: " + msg);
         });
