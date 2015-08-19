@@ -11,13 +11,18 @@ import model.util.LoggerTec;
 import model.util.Tipo;
 
 public class ContatoDao {
-
     private Conexao conexao = null;
-    public Connection con = null;
+    private Connection con = null;
     private PreparedStatement ps = null;
     private ResultSet rs;
-    public LoggerTec logger;
+    private LoggerTec logger;
 
+    
+    public ContatoDao(Conexao conexao, LoggerTec logger) {
+        this.conexao = conexao;
+        this.con = conexao.getConexao();
+        this.logger = logger;
+    }
     public Connection getCon() {
         return this.con;
     }

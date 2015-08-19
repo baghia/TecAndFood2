@@ -1,15 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package dao.estoque;
 
-/**
- *
- * @author Windows
- */
+import dao.util.Conexao;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import model.util.LoggerTec;
+
 public class RefeicaoDao {
+    private Conexao conexao = null;
+    private Connection con = null;
+    private PreparedStatement ps = null;
+    private ResultSet rs;
+    private LoggerTec logger;
     
+    public RefeicaoDao(Conexao conexao, LoggerTec logger) {
+        this.conexao = conexao;
+        this.con = conexao.getConexao();
+        this.logger = logger;
+    }
 }

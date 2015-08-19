@@ -8,21 +8,24 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import model.aluno.Aluno;
-import model.aluno.Contato;
 import model.aluno.Endereco;
 import model.aluno.Estado;
 import model.util.LoggerTec;
 import model.util.Parametro;
-import model.Usuario;
 
 public class AlunoDao {
-
     private Conexao conexao = null;
-    public Connection con = null;
+    private Connection con = null;
     private PreparedStatement ps = null;
     private ResultSet rs;
-    public LoggerTec logger;
+    private LoggerTec logger;
 
+    public AlunoDao(Conexao conexao, LoggerTec logger) {
+        this.conexao = conexao;
+        this.con = conexao.getConexao();
+        this.logger = logger;
+    }
+    
     public Connection getCon() {
         return this.con;
     }
@@ -32,16 +35,6 @@ public class AlunoDao {
     }
     /* ** INSERT **/
 
-    /*
-    id serial PRIMARY KEY,
-    rg varchar(20) UNIQUE NOT NULL,
-    cpf varchar(30) UNIQUE NOT NULL,
-    matricula varchar(50) UNIQUE NOT NULL,
-    endereco integer NOT NULL,
-    dataNascimento date NOT NULL,
-    status boolean DEFAULT TRUE,
-    nome
-    */
     public int inserir(Aluno aluno) {
         String sql = "INSERT INTO aluno VALUES(default, ?, ?, ?, ?, ?, true, ?)";
         try {
