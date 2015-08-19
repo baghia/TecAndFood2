@@ -55,8 +55,8 @@ $(document).ready(function () {
         });
         var request = $.ajax({
             method: "POST",
-            url: "inserir.jsp",
-            data: {codigo: codigo, alimentos_selecionados: alimentos_selecionados}
+            url: "control/VerificaAlimentos",
+            data: {codigo: codigo, alimentos_selecionados: alimentos_selecionados.toString()}
         });
         request.done(function (msg) {
             alert("Data Saved: " + msg);

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 //import model.cliente.Cliente;
 //import model.util.LoggerSab;
 
-@WebServlet(name = "VerificaCNPJ", urlPatterns = {"/control/VerificaCNPJ"})
+@WebServlet(name = "VerificaAlimentos", urlPatterns = {"/control/VerificaAlimentos"})
 public class VerificaAlimentos extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
