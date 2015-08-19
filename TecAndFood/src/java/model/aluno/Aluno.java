@@ -88,4 +88,9 @@ public class Aluno {
         this.dataNascimento = new java.util.Date(dataSql.getTime());
     }
 
+    @Override
+    public String toString() {
+        return "Aluno{" + "id=" + id + ", nome=" + nome + ", rg=" + rg + ", cpf=" + cpf + ", matricula=" + matricula + ", dataNascimento=" + dataNascimento + ", dataSql=" + dataSql + ", endereco=" + endereco + ", status=" + status + '}';
+    }
+    
 }
