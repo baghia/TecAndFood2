@@ -21,12 +21,12 @@
             <div class="container center">
                 <div id="content" class="center " style="position: absolute; padding: 50px;" >
                     <div class="row">
-                        <h4 class="header">
+                        <h5 class="header">
                             <%
                                 DateFormat dfmt = new SimpleDateFormat("EEEE, d 'de' MMMM 'de' yyyy");
                                 Date hoje = Calendar.getInstance(Locale.getDefault()).getTime();%>
                             <%=dfmt.format(hoje)%> </span>
-                        </h4>
+                        </h5>
 
                     </div>
 
@@ -92,7 +92,7 @@
                     </div>
 
                     <div class="row">
-                        <h4><p id="time"></p></h4>
+                        <h5><p id="time"></p></h5>
                     </div>
                 </div>
             </div>

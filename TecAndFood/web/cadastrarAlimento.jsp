@@ -17,7 +17,7 @@
         <%@include file="navbar.jsp" %>
         <main>
             <div class="container">
-                <div id="content" class="center card " style="position: absolute; padding: 50px;" >
+                <div id="content" class="center card " style="position: absolute; padding: 10px;" >
 
                     <div class="row  grey lighten-5  black-text card">
                         <h5 class="col s4 offset-s4 ">Novo Ingrediente</h5>

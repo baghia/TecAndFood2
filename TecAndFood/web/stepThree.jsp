@@ -18,7 +18,7 @@
 
         <main>
             <div class="container">
-                <div id="content" class="center card" style="position: absolute; padding: 50px;" >
+                <div id="content" class="center card" style="position: absolute; padding: 10px;" >
                     <div class="row ">
                         <form class="col s12">
                             <div class="row">
@@ -41,10 +41,11 @@
                             </div>
 
 
-                            <div class="row">
-                                <button id="submit" class="btn waves-effect waves-light" type="button" name="action">Confirmar</button>
-                            </div>
                         </form>
+
+                        <div class="row">
+                            <button id="submit" class="btn waves-effect waves-light" type="button" name="action">Confirmar</button>
+                        </div>
                     </div>
                 </div>
 
