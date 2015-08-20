@@ -36,3 +36,18 @@ main {
 .icons {
     font-size: 14px;
 }
+.bodyInativo{display: none}
+
+.icon a { width: 30px; height: 30px; cursor: pointer; display: block; margin: 0 auto; background: center no-repeat; transition: all linear 0.1s; -webkit-transition: all linear 0.1s }
+.edit a { background-image: url(../images/icons/page_edit.png) }
+.edit a:hover { background-image: url(../images/icons/page_edit_hover.png) }
+.more a { background-image: url(../images/icons/more.png) }
+.more a:hover { background-image: url(../images/icons/more_hover.png) }
+.foto a { background-image: url(../images/icons/icone_foto.png) }
+.foto a:hover { background-image: url(../images/icons/icone_foto_hover.png) }
+.del a { background-image: url(../images/icons/delete.png) }
+.del a:hover { background-image: url(../images/icons/delete_hover.png) }
+.new a { background-image: url(../images/icons/new.png) }
+.new a:hover { background-image: url(../images/icons/new_hover.png) }
+.confirm a { background-image: url(../images/icons/confirm.png) }
+.confirm a:hover { background-image: url(../images/icons/confirm_hover.png) }

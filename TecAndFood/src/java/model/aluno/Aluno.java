@@ -1,5 +1,6 @@
 package model.aluno;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Aluno {
@@ -92,5 +93,9 @@ public class Aluno {
     public String toString() {
         return "Aluno{" + "id=" + id + ", nome=" + nome + ", rg=" + rg + ", cpf=" + cpf + ", matricula=" + matricula + ", dataNascimento=" + dataNascimento + ", dataSql=" + dataSql + ", endereco=" + endereco + ", status=" + status + '}';
     }
-    
+    public String dataNascimento() {
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        String format = formato.format(this.dataNascimento);
+        return format;
+    }
 }

@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS aluno(
 	dataNascimento date NOT NULL,
 	status boolean DEFAULT TRUE,
 	nome text NOT NULL,
-	
+
 	FOREIGN KEY (endereco) REFERENCES endereco(id)
 		ON DELETE RESTRICT
 		ON UPDATE CASCADE

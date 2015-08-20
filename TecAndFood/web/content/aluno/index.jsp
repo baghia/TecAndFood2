@@ -1,4 +1,3 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@include file="include.jsp" %>
 <%
@@ -30,7 +29,7 @@
     //AtividadeDao atividadeDao = new AtividadeDao(conexao, logger);
 
     int paginas = (int) alunoDao.calcularPaginacaoAtivos();
-    ArrayList<Aluno> alunos = alunoDao.listarAtivos();
+    ArrayList<Aluno> alunos = null;
 %>
 <!DOCTYPE html>
 <html>
@@ -52,24 +51,55 @@
                 <div class="row  grey lighten-5  black-text card">
                     <h5 class="col s4 offset-s4">Alunos Cadastrados</h5>
                 </div>
-                <% if (!alunos.isEmpty()) { %>
-                <table class='striped responsive-table'>
+                <% int i = 0;
+            if (paginas > 0) { %>
+                <table class='bordered hoverable striped responsive-table'>
                     <thead>
                         <tr>
+                            <th></th>
+                            <th></th>
                             <th data-field='nome'>Nome</th>
                             <th data-field='matricula'>Matrícula</th>
+                            <th data-field='rg'>RG</th>
+                            <th data-field='cpf'>CPF</th>
                             <th data-field='nascimento'>Data de Nascimento</th>
+                            <th data-field='status'>Status</th>
                         </tr>
                     </thead>
-                    <%
-                        if (paginas > 1) {
-                            for (int i = 0; i < paginas; i++) {
-
-                            }
-                        }
-                    }
-                %>
-
+                    <tbody id='p0'>
+                        <%
+                                while (i < paginas) {
+                                    alunos = alunoDao.listarAtivos(i * 10);
+                                    for (Aluno aluno : alunos) {%>
+                        <tr>
+                            <td class='icon edit'><a></a></td>
+                            <td class='icon del'><a></a></td>
+                            <td><%= aluno.getNome()%></td>
+                            <td><%= aluno.getMatricula()%></td>
+                            <td><%= aluno.getRg()%></td>
+                            <td><%= aluno.getCpf()%></td>
+                            <td><%= aluno.dataNascimento()%></td>
+                            <% if(aluno.getStatus()) { %><td>Ativo</td>
+                            <% } else { %> <td>Inativo</td> <% } %>
+                        </tr>
+                        <% }
+                            i++;%>
+                    </tbody>                        
+                    <tbody id='p<%= i%>' class='bodyInativo'>
+                        <% }%>
+                    </tbody>
+                </table>
+                <%
+                    if (paginas > 1) { %>
+                <ul class="pagination">
+                    <% for (i = 0; i < paginas; i++) {%>
+                    <li class="waves-effect"><a href="#!"><%= i + 1%></a></li>
+                        <% } %>
+                </ul>
+                <% }
+                    } else {
+                        out.println("<h5>Nao ha alunos cadastrados</h5>");
+                    }%>
                 <!--
                 <div class="row  grey lighten-5  black-text card">
                     <h5 class="col s4 offset-s4 ">Novo Ingrediente</h5>

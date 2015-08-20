@@ -57,7 +57,7 @@ public class Login extends HttpServlet {
                             request.getSession(true).setAttribute("usuario", login);
                             logger.logInfo("Usuario " + login.getNome() + " logado com sucesso.");
                             logger.fileHandler.close();
-                            response.sendRedirect("content/pedido/");
+                            response.sendRedirect("home.jsp");
                         } catch (SQLException ex) {
                             logger.logSevere("Login: falha ao logar(commit). e=4. SQLException: ", ex);
                             conexao.fechar();

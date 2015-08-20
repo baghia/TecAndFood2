@@ -215,7 +215,7 @@ public class AlunoDao {
     /* * SELECTS **/
 
     public ArrayList<Aluno> listarAtivos() {
-        String sql = "SELECT DISTINCT aluno.*, endereco.rua, endereco.bairro, endereco.num, endereco.cidade, estado.sigla as sigla, endereco.cep as cep "
+        String sql = "SELECT DISTINCT aluno.*, endereco.rua, endereco.bairro, endereco.num, endereco.cidade, endereco.estado, estado.sigla as sigla, endereco.cep as cep "
                 + "FROM aluno join endereco on (aluno.endereco = endereco.id) join estado on (endereco.estado = estado.id) WHERE aluno.status=true ORDER BY aluno.nome ASC";
         ArrayList<Aluno> alunos = new ArrayList<>();
         try {
@@ -257,7 +257,7 @@ public class AlunoDao {
     }
 
     public ArrayList<Aluno> listarAtivos(int offset) {
-        String sql = "SELECT DISTINCT aluno.*, endereco.rua, endereco.bairro, endereco.num, endereco.cidade, estado.sigla as sigla, endereco.cep as cep "
+        String sql = "SELECT DISTINCT aluno.*, endereco.rua, endereco.bairro, endereco.num, endereco.cidade, endereco.estado, estado.sigla as sigla, endereco.cep as cep "
                 + "FROM aluno join endereco on (aluno.endereco = endereco.id) join estado on (endereco.estado = estado.id) WHERE aluno.status=true ORDER BY aluno.nome ASC limit 10 offset ?";
         ArrayList<Aluno> alunos = new ArrayList<>();
         try {
@@ -299,7 +299,7 @@ public class AlunoDao {
         return alunos;
     }
     public ArrayList<Aluno> listarInativos() {
-        String sql = "SELECT DISTINCT aluno.*, endereco.rua, endereco.bairro, endereco.num, endereco.cidade, estado.sigla as sigla, endereco.cep as cep "
+        String sql = "SELECT DISTINCT aluno.*, endereco.rua, endereco.bairro, endereco.num, endereco.cidade, endereco.estado, estado.sigla as sigla, endereco.cep as cep "
                 + "FROM aluno join endereco on (aluno.endereco = endereco.id) join estado on (endereco.estado = estado.id) WHERE aluno.status=false ORDER BY aluno.nome ASC";
         ArrayList<Aluno> alunos = new ArrayList<>();
         try {
@@ -341,7 +341,7 @@ public class AlunoDao {
     }
 
     public ArrayList<Aluno> listarInativos(int offset) {
-        String sql = "SELECT DISTINCT aluno.*, endereco.rua, endereco.bairro, endereco.num, endereco.cidade, estado.sigla as sigla, endereco.cep as cep "
+        String sql = "SELECT DISTINCT aluno.*, endereco.rua, endereco.bairro, endereco.num, endereco.cidade, endereco.estado, estado.sigla as sigla, endereco.cep as cep "
                 + "FROM aluno join endereco on (aluno.endereco = endereco.id) join estado on (endereco.estado = estado.id) WHERE aluno.status=false ORDER BY aluno.nome ASC limit 10 offset ?";
         ArrayList<Aluno> alunos = new ArrayList<>();
         try {
@@ -384,7 +384,7 @@ public class AlunoDao {
     }
 
     public Aluno consultar(int id) {
-        String sql = "SELECT aluno.*, endereco.rua, endereco.bairro, endereco.num, endereco.cidade, estado.sigla as sigla, endereco.cep as cep "
+        String sql = "SELECT aluno.*, endereco.rua, endereco.bairro, endereco.num, endereco.cidade, endereco.estado, estado.sigla as sigla, endereco.cep as cep "
                 + "FROM aluno join endereco on (aluno.endereco = endereco.id) join estado on (endereco.estado = estado.id) WHERE  aluno.id=?";
         Aluno aluno = null;
         try {
@@ -554,9 +554,9 @@ public class AlunoDao {
     }
 
     public double calcularPaginacaoInativos() {
-        String sql = "SELECT count(id) as count FROM aluno WHERE ativo=false";
+        String sql = "SELECT count(id) as count FROM aluno WHERE status=false";
         int count = -1;
-        double result = -1;
+        double result = 1;
         try {
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
@@ -581,9 +581,9 @@ public class AlunoDao {
         return result;
     }    
     public double calcularPaginacaoAtivos() {
-        String sql = "SELECT count(id) as count FROM aluno WHERE ativo=true";
+        String sql = "SELECT count(id) as count FROM aluno WHERE status=true;";
         int count = -1;
-        double result = -1;
+        double result = 1;
         try {
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();

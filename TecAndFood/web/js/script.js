@@ -16,7 +16,32 @@ $(document).ready(function () {
 
     $("#codigo").keydown(function (e) {
         if (e.keyCode == 13) {
-            alert("enter");
+            var matricula = $("#codigo").val();
+            var request = $.ajax({
+                type: "POST",
+                url: "control/BuscarAluno",
+                data: {matricula: matricula},
+                success: function (retorno) {
+                    var parsedJson = $.parseJSON(retorno);
+                    if (parsedJson.error) {
+                        $("#nomeAluno").text("Não encontrado");
+                        
+                        $("#nomeAluno").addClass("red-text");
+                    } else {
+                        $("#nomeAluno").text(parsedJson.nome);
+                        $("#nomeAluno").removeClass("red-text");
+//                        alert(parsedJson.nome);
+                    }
+
+//                    alert(data);  // your response will print here.
+                }
+            });
+//            request.done(function (msg) {
+//                alert("Data Saved: " + msg);
+//            });
+//            request.fail(function (jqXHR, textStatus) {
+//                alert("Request failed: " + textStatus);
+//            });
         }
     }
     );
@@ -59,10 +84,10 @@ $(document).ready(function () {
             data: {codigo: codigo, alimentos_selecionados: alimentos_selecionados.toString()}
         });
         request.done(function (msg) {
-            alert("Data Saved: " + msg);
+//            alert("Data Saved: " + msg);
         });
         request.fail(function (jqXHR, textStatus) {
-            alert("Request failed: " + textStatus);
+//            alert("Request failed: " + textStatus);
         });
         $(".btn-active").each(function () {
             if ($(this).hasClass("disabled")) {
@@ -90,8 +115,7 @@ function UpdateTime() {
 
     var TotalTime = hour + ":" + mins + ":" + secs;
     document.getElementById("time").innerHTML = TotalTime;
-    setTimeout("UpdateTime()", 1000)
-
+    setTimeout("UpdateTime()", 1000);
 }
 
 function abrirLightbox(id) {

@@ -22,13 +22,13 @@
                 <div class="row ">
                     <div class="row">
                         <div class="input-field col l2 s2 m2 offset-l5 offset-s5 offset-m5">
-                            <input id="codigo" type="text" placeholder="Informe o código" class="validate" name="codigo" autofocus="true">
+                            <input id="codigo" type="text" placeholder="Informe o código"  name="codigo" autofocus="true">
                             <label for="codigo">Código</label>
                         </div>
                     </div>
 
                     <div class="row">
-                        <h5>Nome</h5>
+                        <h5 id="nomeAluno">Nome</h5>
                     </div>
 
                     <h6><b>Desmarque os alimentos que não foram escolhidos pelo estudante:</b></h6><br>

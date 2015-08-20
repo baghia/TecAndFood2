@@ -1,8 +1,10 @@
-<%@page import="java.util.Locale"%>
-<%@page import="java.util.Calendar"%>
-<%@page import="java.text.DateFormat"%>
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.util.Date"%>
+<%@page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@include file="include.jsp" %>
+<%
+
+    Usuario usuario = new Usuario();
+    usuario.setNome("");
+    %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,87 +15,38 @@
         <link rel="stylesheet" href="css/style.css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
-    <body onload="UpdateTime();
-            setContent();" onresize="setContent();">
+    <body onload="setContent();" onresize="setContent();">
 
         <%@include file="navbar.jsp" %>
         <main>
             <div class="container center">
-                <div id="content" class="center " style="position: absolute; padding: 50px;" >
-                    <div class="row">
-                        <h5 class="header">
-                            <%
-                                DateFormat dfmt = new SimpleDateFormat("EEEE, d 'de' MMMM 'de' yyyy");
-                                Date hoje = Calendar.getInstance(Locale.getDefault()).getTime();%>
-                            <%=dfmt.format(hoje)%> </span>
-                        </h5>
-
-                    </div>
+                <div id="content" class="center card" style="position: absolute; padding: 50px;" >
 
                     <div class="row">
-                        <div class="col s12 m6">
-                            <a href="stepOne.jsp">
-                                <div class="card grey lighten-5 hoverable">
-                                    <div class="card-content black-text">
-                                        <span class="card-title black-text">Lanche da Manhã</span>
-                                        <p>Leite, biscoito salgado integral, mel e uma maçã.</p></p>
-                                    </div>
-                                    <div class="card-action">
-                                        <a href="stepOne.jsp">Preparar</a>
-                                    </div>
-                                </div>
-                            </a>
+                        <div class="row">
+                            <h6><b>VocÃª precisa estar autenticado para continuar</b></h6>
                         </div>
-                        <div class="col s12 m6">
-                            <a href="stepOne.jsp">
-                                <div class="card white hoverable">
-                                    <div class="card-content black-text">
-                                        <span class="card-title black-text">Almoço</span>
-
-                                        <p>Arroz integral, feijão, omelete de couve, abóbora refogada, salada de tomate.</p></p>
-                                    </div>
-                                    <div class="card-action">
-
-                                        <a href="stepOne.jsp">Preparar</a>
-                                    </div>
+                        <form class="col s12" method="post" action="Login">
+                            <div class="row">
+                                <div class="input-field col s4 offset-s4">
+                                    <input placeholder="UsuÃ¡rio" id="username" type="text" name="username">
+                                    <label for="username">UsuÃ¡rio</label>
                                 </div>
-                            </a>
-                        </div>
-                        <div class="col s12 m6">
-                            <a href="stepOne.jsp">
-                                <div class="card white hoverable">
-                                    <div class="card-content black-text">
-                                        <span class="card-title black-text">Lanche da Tarde</span>
-                                        <p>Suco de uva integral, torta de legumes (cenoura, milho, ervilha, tomate) e uma maçã.</p></p>
-                                    </div>
-                                    <div class="card-action">
+                            </div>
+                            <div class="row">
 
-                                        <a href="stepOne.jsp">Preparar</a>
-                                    </div>
+                                <div class="input-field col s4 offset-s4">
+                                    <input id="password" placeholder="Senha" type="password" name="senha">
+                                    <label for="password">Senha</label>
                                 </div>
-                            </a>
-                        </div>
-                        <div class="col s12 m6">
-                            <a href="stepOne.jsp">
-                                <div class="card grey lighten-5 hoverable">
-                                    <div class="card-content black-text">
-                                        <span class="card-title black-text">Lanche da Noite</span>
-
-                                        <p>Leite, biscoito salgado integral, mel e uma maçã.</p></p>
-                                    </div>
-                                    <div class="card-action">
-
-                                        <a href="stepOne.jsp">Preparar</a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
+                            </div>
+                            <div class="row">
+                                <button class="btn waves-effect waves-light" type="submit" name="action">Entrar
+                                </button>
+                            </div>
+                        </form>
                     </div>
 
-                    <div class="row">
-                        <h5><p id="time"></p></h5>
-                    </div>
                 </div>
             </div>
         </main>
