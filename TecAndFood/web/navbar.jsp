@@ -5,18 +5,18 @@
 <header>
     <div class="navbar-fixed" style="position: absolute">
         <ul id="drop-aluno" class="dropdown-content">
-            <li><a href="content/aluno/index.jsp">Consultar</a></li>
-            <li><a href="content/aluno/index.jsp">Novo</a></li>
+            <li><a href="content/aluno/">Consultar</a></li>
+            <!--li><a href="content/aluno/index.jsp">Novo</a></li-->
         </ul>
         <ul id="drop-ingrediente" class="dropdown-content">
-            <li><a href="cadastrarAlimento.jsp">Novo</a></li>
-            <li><a href="#!">Atualizar</a></li>
-            <li><a href="#!">Consultar</a></li>
+            <!--li><a href="cadastrarAlimento.jsp">Novo</a></li>
+            <li><a href="#!">Atualizar</a></li-->
+            <li><a href="content/ingrediente/">Consultar</a></li>
         </ul>
         <ul id="drop-cardapio" class="dropdown-content">
-            <li><a href="#!">Novo</a></li>
-            <li><a href="#!">Atualizar</a></li>
-            <li><a href="#!">Consultar</a></li>
+            <!--li><a href="#!">Novo</a></li>
+            <li><a href="#!">Atualizar</a></li-->
+            <li><a href="content/cardapio/">Consultar</a></li>
         </ul>
         <ul id="drop-relatorio" class="dropdown-content">
             <li><a href="#!">X</a></li>

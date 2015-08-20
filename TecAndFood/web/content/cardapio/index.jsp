@@ -1,36 +1,39 @@
 <%@page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@include file="include.jsp" %>
 <%
-/*
-    Usuario usuario = null;
-    usuario = (Usuario) request.getAttribute("usuario");
+    /*
+     Usuario usuario = null;
+     usuario = (Usuario) request.getAttribute("usuario");
 
-    session.removeAttribute("location");
-    session.setAttribute("location", "content/aluno/index.jsp");
-*/
+     session.removeAttribute("location");
+     session.setAttribute("location", "content/aluno/index.jsp");
+     */
     Usuario usuario = new Usuario();
     usuario.setNome("Demonstracao");
     LoggerTec logger = new LoggerTec(usuario);
     //Conexao conexao = (Conexao) request.getAttribute("conexao");
     Conexao conexao = new Conexao();
     conexao.setConexao(conexao.conectar());
-/*
-    int e = -1, id = -1;
-    String chave = "", tipo = "", filtro = "";
-    Integer paginasSession = 0;
-    boolean pesquisa = false;
-    double paginasI = 0;
+    /*
+     int e = -1, id = -1;
+     String chave = "", tipo = "", filtro = "";
+     Integer paginasSession = 0;
+     boolean pesquisa = false;
+     double paginasI = 0;
 
-    /*Enumeration<String> atributosS = session.getAttributeNames();
+     /*Enumeration<String> atributosS = session.getAttributeNames();
      Enumeration<String> atributosR = request.getParameterNames();
      ArrayList<ArrayList<Cliente>> lista = new ArrayList<ArrayList<Cliente>>();
      ArrayList<Cliente> clientes;
      ArrayList<Parametro> parametros = null;*/
-    IngredienteDao ingredienteDao = new IngredienteDao(conexao, logger);
-    UnidadeMedidaDao unidadeMedidaDao = new UnidadeMedidaDao(conexao, logger);
+    CardapioDiarioDao cardapioDao = new CardapioDiarioDao(conexao, logger);
+    PratoCardapioDiarioDao pratoDao = new PratoCardapioDiarioDao(conexao, logger);
+    TipoDao tipoDao = new TipoDao(conexao, logger);
 
-    int paginas = (int) ingredienteDao.calcularPaginacao();
-    ArrayList<Ingrediente> ingredientes = null;
+    //int paginas = (int) ingredienteDao.calcularPaginacao();
+    int paginas = 1;
+    ArrayList<CardapioDiario> cardapios = null;
+    ArrayList<Tipo> turnos = tipoDao.listarCodDescricao(4);
 %>
 <!DOCTYPE html>
 <html>
@@ -50,29 +53,38 @@
         <div class="container">
             <div id="content" class="center card " style="position: absolute; padding: 10px;" >
                 <div class="row  grey lighten-5  black-text card">
-                    <h5 class="col s4 offset-s4">Ingredientes Cadastrados</h5>
+                    <h5 class="col s4 offset-s4">Programação Diária</h5>
                 </div>
                 <% int i = 0;
-            if (paginas > 0) { %>
+                    if (paginas > 0) { %>
                 <table class='bordered hoverable striped responsive-table'>
                     <thead>
                         <tr>
                             <!--th></th>
                             <th></th-->
-                            <th data-field='nome'>Nome</th>
-                            <th data-field='matricula'>Unidade de Medida</th>
+                            <th>Dia</th>
+                                <%
+                                    for (Tipo turno : turnos) {
+                                        out.println("<th>" + turno.getNome() + "</th>");
+                                    }
+                                %>
                         </tr>
                     </thead>
                     <tbody id='p0'>
                         <%
-                                while (i < paginas) {
-                                    ingredientes = ingredienteDao.listar(i * 10);
-                                    for (Ingrediente ingrediente : ingredientes) {%>
+                            while (i < paginas) {
+                                cardapios = cardapioDao.listarAtivos();
+                                for (CardapioDiario cardapio : cardapios) {%>
                         <tr>
                             <!--td class='icon edit'><a></a></td>
                             <td class='icon del'><a></a></td-->
-                            <td><%= ingrediente.getNome()%></td>
-                            <td><%= ingrediente.getUnidadeMedida().getSigla() %></td>
+                            <td><%= cardapio.dia() %></td>
+                            <%
+                                ArrayList<PratoCardapioDiario> pratos = pratoDao.listarCardapio(cardapio.getId());
+                                for (PratoCardapioDiario prato : pratos) {
+                                    out.println("<td>" + prato.getPrato().getNome() + "</td>");
+                                }
+                            %>
                         </tr>
                         <% }
                             i++;%>
@@ -90,7 +102,7 @@
                 </ul>
                 <% }
                     } else {
-                        out.println("<h5>Nao há ingredientes cadastrados</h5>");
+                        out.println("<h5>Nao há cardápios cadastrados</h5>");
                     }%>
                 <!--
                 <div class="row  grey lighten-5  black-text card">

@@ -10,9 +10,9 @@
             <li><a href="#!">Consultar</a></li-->
         </ul>
         <ul id="drop-cardapio" class="dropdown-content">
-            <li><a href="#!">Novo</a></li>
-            <li><a href="#!">Atualizar</a></li>
-            <li><a href="#!">Consultar</a></li>
+            <!--li><a href="#!">Novo</a></li>
+            <li><a href="#!">Atualizar</a></li-->
+            <li><a href="../cardapio/">Consultar</a></li>
         </ul>
         <ul id="drop-relatorio" class="dropdown-content">
             <li><a href="#!">X</a></li>
