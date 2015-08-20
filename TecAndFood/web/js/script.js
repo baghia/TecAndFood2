@@ -14,9 +14,9 @@ $(document).ready(function () {
 //        belowOrigin: true// Displays dropdown below the button
 //    });
 
-    $("#codigo").keydown(function (e) {
+    $("#matricula").keydown(function (e) {
         if (e.keyCode == 13) {
-            var matricula = $("#codigo").val();
+            var matricula = $("#matricula").val();
             var request = $.ajax({
                 type: "POST",
                 url: "control/BuscarAluno",
@@ -24,39 +24,32 @@ $(document).ready(function () {
                 success: function (retorno) {
                     var parsedJson = $.parseJSON(retorno);
                     if (parsedJson.error) {
-                        $("#nomeAluno").text("Não encontrado");
-                        
+                        $("#matricula").val("");
+                        $("#nomeAluno").text(decodeURIComponent(escape("Não encontrado")));
                         $("#nomeAluno").addClass("red-text");
+                        $("#nomeAluno").removeClass("green-text");
                     } else {
+
+                        $("#nomeAluno").show();
+                        $(".codigo-hide").hide(500);
+                        $(".hidden").show(500);
+                        
+                        $("#submit").focus();
                         $("#nomeAluno").text(parsedJson.nome);
                         $("#nomeAluno").removeClass("red-text");
-//                        alert(parsedJson.nome);
+                        $("#nomeAluno").removeClass("green-text");
                     }
 
-//                    alert(data);  // your response will print here.
                 }
             });
-//            request.done(function (msg) {
-//                alert("Data Saved: " + msg);
-//            });
-//            request.fail(function (jqXHR, textStatus) {
-//                alert("Request failed: " + textStatus);
-//            });
         }
     }
     );
-//    });
-//    $("[name=formulario]").submit(function (e) {
-//        alert("submit");
-//        e.preventDefault();
-//    });
-//
-//
-//    $('select').on('contentChanged', function () {
-//        // re-initialize (update)
-//        $(this).material_select();
-//    });
 
+    $("#nomeAluno").text("Aguardando Leitura").addClass("green-text");
+    $(".hidden").hide();
+    ;
+    $(".codigo-hide").show();
     $('.modal-trigger').leanModal();
     $('.tooltipped').tooltip({delay: 50});
     $('select').material_select();
@@ -70,7 +63,12 @@ $(document).ready(function () {
     $("#submit").click(function () {
         submit();
     });
+
     function submit() {
+        $("#nomeAluno").text("Aguardando Leitura").addClass("green-text");
+        $(".codigo-hide").show(500);
+        $("#matricula").focus();
+        $(".hidden").hide(500);
         var codigo = $("#codigo").val();
         var alimentos_selecionados = [];
         $(".btn-active").each(function () {
@@ -94,7 +92,7 @@ $(document).ready(function () {
                 $(this).removeClass("disabled");
             }
         });
-        $("#codigo").val("").focus();
+        $("#matricula").val("").focus();
     }
 
 });
