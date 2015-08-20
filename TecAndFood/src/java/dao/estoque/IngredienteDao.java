@@ -149,6 +149,7 @@ public class IngredienteDao {
                 unidadeMedida.setSigla(rs.getString("siglaUnidade"));
 
                 ingrediente.setId(rs.getInt("id"));
+                ingrediente.setNome(rs.getString("nome"));
                 ingrediente.setUnidadeMedida(unidadeMedida);
                 ingredientes.add(ingrediente);
             }
@@ -274,7 +275,7 @@ public class IngredienteDao {
     public double calcularPaginacao() {
         String sql = "SELECT count(id) as count FROM ingrediente";
         int count = -1;
-        double result = -1;
+        double result = 1;
         try {
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
@@ -301,7 +302,7 @@ public class IngredienteDao {
 
     public double calcularPaginacaoPesquisaLivre(String sql, ArrayList<Parametro> parametros) {
         int count = -1;
-        double result = -1;
+        double result = 1;
         try {
             ps = con.prepareStatement(sql);
             for (Parametro parametro : parametros) {

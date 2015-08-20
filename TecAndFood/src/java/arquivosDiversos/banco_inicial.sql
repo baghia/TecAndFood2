@@ -160,6 +160,8 @@ CREATE TABLE IF NOT EXISTS prato(
 	nome text NOT NULL
 );
 INSERT INTO prato VALUES (default, 'Leite, biscoito salgado integral, mel e uma maçã');
+INSERT INTO prato VALUES (default, 'Arroz integral, feijão, omelete de couve, abóbora refogada, salada de tomate.');
+INSERT INTO prato VALUES (default, 'Suco de uva integral, torta de legumes (cenoura, milho, ervilha, tomate) e uma maçã.');
 
 CREATE TABLE IF NOT EXISTS ingredientePrato(
 	id serial PRIMARY KEY,
@@ -202,6 +204,9 @@ CREATE TABLE IF NOT EXISTS pratoCarDiario(
 		ON UPDATE CASCADE
 );
 INSERT INTO pratoCarDiario VALUES (default, 1,1,9);
+INSERT INTO pratoCarDiario VALUES (default, 1,2,10);
+INSERT INTO pratoCarDiario VALUES (default, 1,3,11);
+INSERT INTO pratoCarDiario VALUES (default, 1,1,12);
 
 
 CREATE TABLE IF NOT EXISTS refeicao(
@@ -210,6 +215,7 @@ CREATE TABLE IF NOT EXISTS refeicao(
 	pratoCarDiario integer NOT NULL,
 	ingredientePrato integer NOT NULL,
 	dataHora timestamp NOT NULL DEFAULT now(0),
+        intervalo integer NOT NULL,
 	
 	FOREIGN KEY (aluno) REFERENCES aluno(id)
 		ON DELETE RESTRICT
@@ -218,6 +224,9 @@ CREATE TABLE IF NOT EXISTS refeicao(
 		ON DELETE RESTRICT
 		ON UPDATE CASCADE,
 	FOREIGN KEY (ingredientePrato) REFERENCES ingredientePrato(id)
+		ON DELETE RESTRICT
+		ON UPDATE CASCADE,
+        FOREIGN KEY (intervalo) REFERENCES intervalo(id)
 		ON DELETE RESTRICT
 		ON UPDATE CASCADE
 );
@@ -234,3 +243,14 @@ CREATE TABLE IF NOT EXISTS usuario(
 		ON DELETE RESTRICT
 		ON UPDATE CASCADE
 );
+INSERT INTO usuario VALUES (default, 'baghia', 'baghia', '123321', 1, true);
+INSERT INTO usuario VALUES (default, 'jeferson', 'jeferson', '123321', 1, true);
+INSERT INTO usuario VALUES (default, 'Demonstracao', 'demo', '123321', 1, true);
+
+CREATE TABLE IF NOT EXISTS intervalo(
+    id serial PRIMARY KEY,
+    dataHora timestamp DEFAULT now(),
+    ativo boolean DEFAULT true
+);
+
+ALTER TABLE refeicao ADD COLUMN intervalo integer NOT NULL REFERENCES intervalo(id) ON DELETE RESTRICT ON UPDATE CASCADE;
