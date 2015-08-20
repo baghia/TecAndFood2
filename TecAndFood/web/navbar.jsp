@@ -26,7 +26,7 @@
         </ul>
         <nav>
             <div class="nav-wrapper">
-                <a href="home.jsp" class="brand-logo"><h5>Tec And Food </h5></h5></a>
+                <a href="home.jsp" class="brand-logo"><h5>Tec And Food - Bem-Vindo(a), <%= usuario.getNome() %></h5></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <!--<li><a class="dropdown-button" href="#!" data-activates="dropdown1">Alimentos<i class="material-icons right">arrow_drop_down</i></a></li>-->                            
                     <li><a href="home.jsp">Página Inicial</a></li>

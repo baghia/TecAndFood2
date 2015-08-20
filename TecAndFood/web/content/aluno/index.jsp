@@ -1,15 +1,19 @@
 <%@page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@include file="include.jsp" %>
 <%
-
+/*
     Usuario usuario = null;
     usuario = (Usuario) request.getAttribute("usuario");
 
     session.removeAttribute("location");
     session.setAttribute("location", "content/aluno/index.jsp");
-
-    LoggerTec logger = (LoggerTec) request.getAttribute("logger");
-    Conexao conexao = (Conexao) request.getAttribute("conexao");
+*/
+    Usuario usuario = new Usuario();
+    usuario.setNome("Demonstracao");
+    LoggerTec logger = new LoggerTec(usuario);
+    //Conexao conexao = (Conexao) request.getAttribute("conexao");
+    Conexao conexao = new Conexao();
+    conexao.setConexao(conexao.conectar());
 
     int e = -1, id = -1;
     String chave = "", tipo = "", filtro = "";
