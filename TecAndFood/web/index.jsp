@@ -1,11 +1,5 @@
 <%@page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@include file="include.jsp" %>
-<%
-
-    Usuario usuario = new Usuario();
-    usuario.setNome("Demonstracao");
-    LoggerTec logger = new LoggerTec(usuario);
-    %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -55,7 +49,7 @@
                                         <p>Arroz integral, feijão, omelete de couve, abóbora refogada, salada de tomate.</p></p>
                                     </div>
                                     <div class="card-action">
-                                        <!--a href="stepOne.jsp">Preparar</a-->
+                                        <a href="stepOne.jsp">Preparar</a>
                                     </div>
                                 </div>
                             </a>
@@ -68,7 +62,7 @@
                                         <p>Suco de uva integral, torta de legumes (cenoura, milho, ervilha, tomate) e uma maçã.</p></p>
                                     </div>
                                     <div class="card-action">
-                                        <!--a href="stepOne.jsp">Preparar</a-->
+                                        <a href="#">Preparar</a>
                                     </div>
                                 </div>
                             </a>
@@ -81,7 +75,7 @@
                                         <p>Leite, biscoito salgado integral, mel e uma maçã.</p></p>
                                     </div>
                                     <div class="card-action">
-                                        <!--a href="stepOne.jsp">Preparar</a-->
+                                        <a href="#">Preparar</a>
                                     </div>
                                 </div>
                             </a>

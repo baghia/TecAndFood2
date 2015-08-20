@@ -60,8 +60,8 @@
                 <table class='bordered hoverable striped responsive-table'>
                     <thead>
                         <tr>
-                            <th></th>
-                            <th></th>
+                            <!--th></th>
+                            <th></th-->
                             <th data-field='nome'>Nome</th>
                             <th data-field='matricula'>Matrícula</th>
                             <th data-field='rg'>RG</th>
@@ -76,8 +76,8 @@
                                     alunos = alunoDao.listarAtivos(i * 10);
                                     for (Aluno aluno : alunos) {%>
                         <tr>
-                            <td class='icon edit'><a></a></td>
-                            <td class='icon del'><a></a></td>
+                            <!--td class='icon edit'><a></a></td>
+                            <td class='icon del'><a></a></td-->
                             <td><%= aluno.getNome()%></td>
                             <td><%= aluno.getMatricula()%></td>
                             <td><%= aluno.getRg()%></td>
