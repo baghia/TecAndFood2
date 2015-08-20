@@ -32,7 +32,7 @@ public class InserirRefeicao extends HttpServlet {
         rdao.setCon(new Conexao().conectar());
         AlunoDao alunoDao = new AlunoDao(new Conexao(), new LoggerTec());
         alunoDao.setCon(new Conexao().conectar());
-        Aluno aluno = alunoDao.buscarMatricula(matricula);
+        Aluno aluno = alunoDao.buscarMatricula(matricula); 
         String alimentos[] = alimentosSelecionados.split(",");
         if (aluno != null) {
 
