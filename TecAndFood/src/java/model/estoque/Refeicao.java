@@ -6,6 +6,7 @@ import model.cardapio.IngredientePrato;
 import model.cardapio.PratoCardapioDiario;
 
 public class Refeicao {
+
     private int id;
     private Aluno aluno;
     private PratoCardapioDiario prato;
@@ -15,26 +16,36 @@ public class Refeicao {
     public int getId() {
         return id;
     }
+
     public Aluno getAluno() {
         return aluno;
     }
+
     public PratoCardapioDiario getPrato() {
         return prato;
     }
+
     public Date getDataHora() {
         return dataHora;
     }
-    
+
     public void setId(int id) {
         this.id = id;
     }
+
     public void setAluno(Aluno aluno) {
         this.aluno = aluno;
     }
+
     public void setPrato(PratoCardapioDiario prato) {
         this.prato = prato;
     }
+
+    public void setIngrediente(IngredientePrato ingrediente) {
+        this.ingrediente = ingrediente;
+    }
+
     public IngredientePrato getIngrediente() {
         return ingrediente;
-    }   
+    }
 }

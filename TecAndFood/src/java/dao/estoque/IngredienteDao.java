@@ -118,6 +118,7 @@ public class IngredienteDao {
                 unidadeMedida.setSigla(rs.getString("siglaUnidade"));
 
                 ingrediente.setId(rs.getInt("id"));
+                ingrediente.setNome(rs.getString("nome"));
                 ingrediente.setUnidadeMedida(unidadeMedida);
                 ingredientes.add(ingrediente);
             }

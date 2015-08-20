@@ -42,7 +42,7 @@ public class RefeicaoDao {
             ps = con.prepareStatement(sql);
             ps.setInt(1, refeicao.getAluno().getId());
             ps.setInt(2, refeicao.getPrato().getId());
-            ps.setInt(2, refeicao.getIngrediente().getId());
+            ps.setInt(3, refeicao.getIngrediente().getId());
             ps.execute();
             return true;
         } catch (SQLException ex) {

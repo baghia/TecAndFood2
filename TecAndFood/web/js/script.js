@@ -14,6 +14,37 @@ $(document).ready(function () {
 //        belowOrigin: true// Displays dropdown below the button
 //    });
 
+    $("#select-ingredientes").change(function () {
+        var unidadeDeMedida = $("#select-ingredientes option:selected").attr("id");
+        $("#unidadeMedida").text(unidadeDeMedida);
+    });
+    var cont = 0;
+    $("#adicionarIngrediente").click(function () {
+        var nome = $("#select-ingredientes option:selected").text();
+        var quantidade = $("#quantidade_informada").val();
+        var id = $("#select-ingredientes option:selected").attr("value");
+        var unidadeDeMedida = $("#select-ingredientes option:selected").attr("id");
+        if (id != "" && $.isNumeric(quantidade)) {
+            $("#adicionados").append(
+                    '<div class="row">' +
+                    '<div class="input-field col s3 offset-s3">' +
+                    '<input id="nome" type="text" class="black-text" readonly="true" name="nome" value="' + nome + '">' +
+//                '<label for="nome">Ingrediente</label>' +
+                    '</div>' +
+                    '<div class="input-field col s2">' +
+                    '<input  id="quantidade" type="text"  class="black-text" readonly="true" name="quantidade" value="' + quantidade + '">' +
+//                '<label for="quantidade">Quantidade</label>' +
+                    '</div>' +
+                    '<input  id="id" type="hidden"  name="id" value="' + id + '" >' +
+                    '<div class="input-field col s1 left">' +
+                    '<b><h6>' + unidadeDeMedida + '</h6></b>' +
+                    '</div>' +
+                    '</div>');
+            cont++
+        }
+        setContent();
+    });
+
     $("#matricula").keydown(function (e) {
         if (e.keyCode == 13) {
             var matricula = $("#matricula").val();
@@ -33,7 +64,7 @@ $(document).ready(function () {
                         $("#nomeAluno").show();
                         $(".codigo-hide").hide(500);
                         $(".hidden").show(500);
-                        
+
                         $("#submit").focus();
                         $("#nomeAluno").text(parsedJson.nome);
                         $("#nomeAluno").removeClass("red-text");
@@ -48,7 +79,7 @@ $(document).ready(function () {
 
     $("#nomeAluno").text("Aguardando leitura...").addClass("green-text");
     $(".hidden").hide();
-    ;
+    
     $(".codigo-hide").show();
     $('.modal-trigger').leanModal();
     $('.tooltipped').tooltip({delay: 50});
@@ -69,7 +100,7 @@ $(document).ready(function () {
         $(".codigo-hide").show(500);
         $("#matricula").focus();
         $(".hidden").hide(500);
-        var codigo = $("#codigo").val();
+        var matricula = $("#matricula").val();
         var alimentos_selecionados = [];
         $(".btn-active").each(function () {
             if (!$(this).hasClass("disabled")) {
@@ -78,8 +109,8 @@ $(document).ready(function () {
         });
         var request = $.ajax({
             method: "POST",
-            url: "control/VerificaAlimentos",
-            data: {codigo: codigo, alimentos_selecionados: alimentos_selecionados.toString()}
+            url: "control/InserirRefeicao",
+            data: {matricula: matricula, alimentos_selecionados: alimentos_selecionados.toString()}
         });
         request.done(function (msg) {
 //            alert("Data Saved: " + msg);

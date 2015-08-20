@@ -33,10 +33,10 @@
                         <div class="hidden">
                             <h6><b>Desmarque os alimentos que não foram escolhidos:</b></h6><br>
                             <div id="bt-group" class="row">
-                                <button id="bt1" class="btn waves-effect waves-light btn-large btn-active" type="button" name="action">Leite in Natura</button>
-                                <button id="bt2" class="btn waves-effect waves-light btn-large btn-active" type="button" name="action">Biscoito Salgado Integral</button>
-                                <button id="bt3" class="btn waves-effect waves-light btn-large btn-active" type="button" name="action">Mel de Abelhas</button>
-                                <button id="bt4" class="btn waves-effect waves-light btn-large btn-active" type="button" name="action">Maçã</button>
+                                <button id="1" class="btn waves-effect waves-light btn-large btn-active" type="button" name="action">Leite in Natura</button>
+                                <button id="3" class="btn waves-effect waves-light btn-large btn-active" type="button" name="action">Biscoito Salgado Integral</button>
+                                <button id="4" class="btn waves-effect waves-light btn-large btn-active" type="button" name="action">Mel de Abelhas</button>
+                                <button id="2" class="btn waves-effect waves-light btn-large btn-active" type="button" name="action">Maçã</button>
                             </div>
 
 
