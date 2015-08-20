@@ -58,7 +58,7 @@ public class InserirRefeicao extends HttpServlet {
                 pcd.setId(1);
                 refeicao.setPrato(pcd);
                 rdao.inserir(refeicao);
-                try {
+                try { 
                     con.commit();
                 } catch (SQLException ex) {
                     Logger.getLogger(InserirRefeicao.class.getName()).log(Level.SEVERE, null, ex);
