@@ -23,17 +23,16 @@ public class Buscar extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String matricula = request.getParameter("matricula");
-        System.out.println(matricula);
         AlunoDao alunodao = new AlunoDao(new Conexao(), new LoggerTec());
         alunodao.setCon(new Conexao().conectar());
         Aluno aluno = alunodao.buscarMatricula(matricula);
+
         Gson gson = new Gson();
-//        response.setHeader("Accept", "application/json");
-//        response.setHeader("Content-type", "application/json");
+        response.setCharacterEncoding("UTF8");
         if (aluno != null) {
+//            String value = new String(aluno.getNome().getBytes("UTF-8"));
+//            aluno.setNome(value);
             response.getWriter().write(gson.toJson(aluno));
-//            response.getWriter().write("{\"id\":\"" + aluno.getId()+"\",");
-//            response.getWriter().write("\"nome\":\"" + aluno.getNome()+"\"}");
         } else {
             response.getWriter().write("{\"error\":\"true\"}");
         }

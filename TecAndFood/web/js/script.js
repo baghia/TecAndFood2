@@ -25,7 +25,7 @@ $(document).ready(function () {
                     var parsedJson = $.parseJSON(retorno);
                     if (parsedJson.error) {
                         $("#matricula").val("");
-                        $("#nomeAluno").text(decodeURIComponent(escape("Não encontrado")));
+                        $("#nomeAluno").text("Não encontrado");
                         $("#nomeAluno").addClass("red-text");
                         $("#nomeAluno").removeClass("green-text");
                     } else {
@@ -46,7 +46,7 @@ $(document).ready(function () {
     }
     );
 
-    $("#nomeAluno").text("Aguardando Leitura").addClass("green-text");
+    $("#nomeAluno").text("Aguardando leitura...").addClass("green-text");
     $(".hidden").hide();
     ;
     $(".codigo-hide").show();
@@ -65,7 +65,7 @@ $(document).ready(function () {
     });
 
     function submit() {
-        $("#nomeAluno").text("Aguardando Leitura").addClass("green-text");
+        $("#nomeAluno").text("Aguardando leitura..").addClass("green-text");
         $(".codigo-hide").show(500);
         $("#matricula").focus();
         $(".hidden").hide(500);
