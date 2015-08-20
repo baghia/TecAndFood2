@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-
-<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="js/bin/materialize.min.js"></script>
-<script src="js/script.js"></script>
 <header>
     <div class="navbar-fixed" style="position: absolute">
         <ul id="drop-aluno" class="dropdown-content">
-            <li><a href="content/aluno/index.jsp">Consultar</a></li>
-            <li><a href="content/aluno/index.jsp">Novo</a></li>
+            <li><a href="../aluno/">Consultar</a></li>
+            <li><a href="../aluno/">Novo</a></li>
         </ul>
         <ul id="drop-ingrediente" class="dropdown-content">
             <li><a href="cadastrarAlimento.jsp">Novo</a></li>

@@ -221,3 +221,16 @@ CREATE TABLE IF NOT EXISTS refeicao(
 		ON DELETE RESTRICT
 		ON UPDATE CASCADE
 );
+
+CREATE TABLE IF NOT EXISTS usuario(
+	id serial PRIMARY KEY,
+	nome text NOT NULL,
+	username character varying(10) NOT NULL,
+	senha character varying(20) NOT NULL,
+	tipo integer NOT NULL,
+	ativo boolean DEFAULT true,
+  
+	FOREIGN KEY (tipo) REFERENCES tipo(id) 
+		ON DELETE RESTRICT
+		ON UPDATE CASCADE
+);
