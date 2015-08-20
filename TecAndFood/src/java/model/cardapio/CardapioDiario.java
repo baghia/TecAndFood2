@@ -1,5 +1,6 @@
 package model.cardapio;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -27,11 +28,19 @@ public class CardapioDiario {
     }
     public void setDia(Date dia) {
         this.dia = dia;
+        this.diaSql = new java.sql.Date(dia.getTime());
     }
     public void setDiaSql(java.sql.Date diaSql) {
         this.diaSql = diaSql;
+        this.dia = new java.util.Date(diaSql.getTime());
     }
     public void setPratos(ArrayList<PratoCardapioDiario> pratos) {
         this.pratos = pratos;
+    }
+    
+    public String dia() {
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        String format = formato.format(this.dia);
+        return format;
     }
 }

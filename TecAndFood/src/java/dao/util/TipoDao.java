@@ -14,6 +14,13 @@ public class TipoDao {
     private PreparedStatement ps = null;
     private ResultSet rs;
     public LoggerTec logger;
+
+    public TipoDao(Conexao conexao, LoggerTec logger) {
+        this.logger = logger;
+        this.conexao = conexao;
+        this.con = conexao.getConexao();
+    }
+    
     
     public Connection getCon(){
         return this.con;

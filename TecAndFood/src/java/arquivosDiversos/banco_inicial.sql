@@ -176,10 +176,10 @@ CREATE TABLE IF NOT EXISTS ingredientePrato(
 		ON DELETE RESTRICT
 		ON UPDATE CASCADE
 );
-INSERT INTO ingredientePrato VALUES (default, 1,1,25);
-INSERT INTO ingredientePrato VALUES (default, 2,1,10);
-INSERT INTO ingredientePrato VALUES (default, 3,1,5.95);
-INSERT INTO ingredientePrato VALUES (default, 4,1,1.5);
+INSERT INTO ingredientePrato VALUES (default, 1,1,0.16);
+INSERT INTO ingredientePrato VALUES (default, 2,1,0.06);
+INSERT INTO ingredientePrato VALUES (default, 3,1,0.038);
+INSERT INTO ingredientePrato VALUES (default, 4,1,0.0096);
 
 CREATE TABLE IF NOT EXISTS cardapioDiario(
 	id serial PRIMARY KEY,
