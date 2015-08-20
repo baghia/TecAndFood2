@@ -1,8 +1,11 @@
-package control.refeicao;
+package control.intervalo;
 
 //import dao.cliente.ClienteDao;
 //import dao.util.Conexao;
+import control.aluno.*;
+import com.google.gson.Gson;
 import control.*;
+import control.refeicao.InserirRefeicao;
 import dao.aluno.AlunoDao;
 import dao.estoque.IntervaloDao;
 import dao.estoque.RefeicaoDao;
@@ -20,59 +23,30 @@ import javax.servlet.http.HttpServletResponse;
 import model.aluno.Aluno;
 import model.cardapio.IngredientePrato;
 import model.cardapio.PratoCardapioDiario;
-import model.estoque.Intervalo;
 import model.estoque.Refeicao;
 import model.util.LoggerTec;
 //import model.cliente.Cliente;
 //import model.util.LoggerSab;
 
-@WebServlet(name = "InserirRefeicao", urlPatterns = {"/control/InserirRefeicao"})
-public class InserirRefeicao extends HttpServlet {
+@WebServlet(name = "FecharIntervalo", urlPatterns = {"/control/FecharIntervalo"})
+public class Fechar extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String matricula = request.getParameter("matricula");
-        String alimentosSelecionados = request.getParameter("alimentos_selecionados");
+
         Conexao conexao = new Conexao();
         Connection con = conexao.conectar();
-        Refeicao refeicao;
-        RefeicaoDao rdao = new RefeicaoDao(conexao, new LoggerTec());
-        rdao.setCon(con);
-        AlunoDao alunoDao = new AlunoDao(conexao, new LoggerTec());
-        alunoDao.setCon(con);
-        IntervaloDao idao = new IntervaloDao(conexao, new LoggerTec());
-        idao.setCon(con);
-        Aluno aluno = alunoDao.buscarMatricula(matricula);
-        String alimentos[] = alimentosSelecionados.split(",");
-        if (aluno != null) {
-
-            for (String idIngrediente : alimentos) {
-                refeicao = new Refeicao();
-                refeicao.setAluno(aluno);
-                Intervalo intervalo = idao.buscarUltimo();
-                refeicao.setIntervalo(intervalo);
-                IngredientePrato ip = new IngredientePrato();
-                ip.setId(Integer.parseInt(idIngrediente));
-                refeicao.setIngrediente(ip);
-                PratoCardapioDiario pcd = new PratoCardapioDiario();
-                pcd.setId(1);
-                refeicao.setPrato(pcd);
-                rdao.inserir(refeicao);
-                try { 
-                    con.commit();
-                } catch (SQLException ex) {
-                    Logger.getLogger(InserirRefeicao.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                System.out.println("Código d: " + matricula);
-                for (String alimento : alimentos) {
-                    System.out.println(alimento);
-                }
+        IntervaloDao intervaloDao = new IntervaloDao(conexao, new LoggerTec());
+        intervaloDao.setCon(con);
+        boolean sucesso = intervaloDao.alterarStatus(false, intervaloDao.buscarUltimo().getId());
+        
+        if (sucesso) {
+            try {
+                con.commit();
+                response.sendRedirect("../relatorio.jsp");
+            } catch (SQLException ex) {
+                Logger.getLogger(Fechar.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
-
-        System.out.println("Código: " + matricula);
-        for (String alimento : alimentos) {
-            System.out.println(alimento);
         }
     }
 

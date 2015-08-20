@@ -155,10 +155,8 @@ function fecharLightbox() {
 }
 $(document).keydown(function (e) {
     if ((e.which == 74) && (e.ctrlKey || e.metaKey)) {
-        alert("ctrl j");
         e.preventDefault();
     }
-
 });
 function getWindowHeight() {
     var windowHeight = 0;

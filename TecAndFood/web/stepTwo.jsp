@@ -54,7 +54,7 @@
                         </table>
                     </div>
                     <div class="row ">
-                        <a class="waves-effect waves-light btn" href="stepThree.jsp">Iniciar Intervalo</a>
+                        <a class="waves-effect waves-light btn" href="control/InserirIntervalo">Iniciar Intervalo</a>
                     </div>
                 </div>
             </div>

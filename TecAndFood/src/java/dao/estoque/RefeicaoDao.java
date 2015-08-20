@@ -37,12 +37,13 @@ public class RefeicaoDao {
     dataHora
     */
     public boolean inserir(Refeicao refeicao) {
-        String sql = "INSERT INTO refeicao VALUES(default, ?, ?, ?, default)";
+        String sql = "INSERT INTO refeicao VALUES(default, ?, ?, ?, default, ?)";
         try {
             ps = con.prepareStatement(sql);
             ps.setInt(1, refeicao.getAluno().getId());
             ps.setInt(2, refeicao.getPrato().getId());
             ps.setInt(3, refeicao.getIngrediente().getId());
+            ps.setInt(4, refeicao.getIntervalo().getId());
             ps.execute();
             return true;
         } catch (SQLException ex) {
