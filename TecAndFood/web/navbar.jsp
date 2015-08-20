@@ -26,10 +26,10 @@
         </ul>
         <nav>
             <div class="nav-wrapper">
-                <a href="home.jsp" class="brand-logo"><h5>Tec And Food - Bem-Vindo(a), <%= usuario.getNome() %></h5></a>
+                <a href="index.jsp" class="brand-logo"><h5>Tec And Food - Bem-Vindo(a), <%= usuario.getNome() %></h5></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <!--<li><a class="dropdown-button" href="#!" data-activates="dropdown1">Alimentos<i class="material-icons right">arrow_drop_down</i></a></li>-->                            
-                    <li><a href="home.jsp">Página Inicial</a></li>
+                    <li><a href="index.jsp">Página Inicial</a></li>
                     <li><a class="dropdown-button" data-beloworigin="true" href="#!" data-activates="drop-aluno">Alunos<div class="icons right">&#x25bc;</div></a></li>
                     <li><a class="dropdown-button" data-beloworigin="true" href="#!" data-activates="drop-ingrediente">Ingredientes<div class="icons right">&#x25bc;</div></a></li>
                     <li><a class="dropdown-button" data-beloworigin="true" href="#!" data-activates="drop-cardapio">Cardápios<div class="icons right">&#x25bc;</div></a></li>
