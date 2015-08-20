@@ -12,6 +12,7 @@ public class Refeicao {
     private PratoCardapioDiario prato;
     private IngredientePrato ingrediente;
     private java.util.Date dataHora;
+    private Intervalo intervalo;
 
     public int getId() {
         return id;
@@ -47,5 +48,13 @@ public class Refeicao {
 
     public IngredientePrato getIngrediente() {
         return ingrediente;
+    }
+
+    public Intervalo getIntervalo() {
+        return intervalo;
+    }
+
+    public void setIntervalo(Intervalo intervalo) {
+        this.intervalo = intervalo;
     }
 }
