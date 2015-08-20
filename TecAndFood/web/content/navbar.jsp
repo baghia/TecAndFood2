@@ -2,12 +2,12 @@
     <div class="navbar-fixed" style="position: absolute">
         <ul id="drop-aluno" class="dropdown-content">
             <li><a href="../aluno/">Consultar</a></li>
-            <li><a href="../aluno/">Novo</a></li>
+            <!--li><a href="../aluno/">Novo</a></li-->
         </ul>
         <ul id="drop-ingrediente" class="dropdown-content">
-            <li><a href="../../cadastrarAlimento.jsp">Novo</a></li>
-            <li><a href="#!">Atualizar</a></li>
-            <li><a href="#!">Consultar</a></li>
+            <li><a href="../ingrediente/">Consultar</a></li>
+            <!--li><a href="#!">Atualizar</a></li>
+            <li><a href="#!">Consultar</a></li-->
         </ul>
         <ul id="drop-cardapio" class="dropdown-content">
             <li><a href="#!">Novo</a></li>
