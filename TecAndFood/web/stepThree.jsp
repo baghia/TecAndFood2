@@ -44,6 +44,10 @@
                                 <button id="submit" class="btn waves-effect waves-light" type="button" name="action">Confirmar</button>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <h5 class="right" id="quantidadePassadas">0</h5>
+                        </div>
                     </div>
                 </div>
 
@@ -65,7 +69,6 @@
             </div>
         </div>
         <footer>
-
             <div class="container">
                 <div class="row">
                     <div class="col s12">

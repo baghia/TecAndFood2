@@ -1,3 +1,6 @@
+<%@page import="model.estoque.Intervalo"%>
+<%@page import="dao.estoque.IntervaloDao"%>
+<%@page import="dao.estoque.RefeicaoDao"%>
 <%@page import="model.cardapio.IngredientePrato"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.cardapio.Prato"%>
@@ -20,6 +23,15 @@
     prato.setId(1);
     ArrayList<IngredientePrato> ingredientesPrato = ingredientePratoDao.buscarPorPrato(prato);
     int quantidade = Integer.parseInt(request.getParameter("quantidade"));
+
+    RefeicaoDao refeicaoDao = new RefeicaoDao(conexao, new LoggerTec());
+    refeicaoDao.setCon(con);
+    
+    IntervaloDao intervaloDao = new IntervaloDao(conexao, new LoggerTec());
+    intervaloDao.setCon(con);
+    Intervalo intervalo = intervaloDao.buscarUltimo();
+    
+    int quantidadeTotal = refeicaoDao.quantidadeTotalPorIntervalo(intervalo);
 %>
 <html>
     <head>
@@ -34,15 +46,15 @@
         <%@include file="navbar.jsp" %>
         <main>
             <div class="container">
-                <div id="content" class="center card" style="position: absolute; padding: 20px;" >
+                <div id="content" class="center card" style="padding: 20px;" >
                     <div class="row">
                         <div class="col s4 offset-s1 center">
                             <h5 >Esperado</h5>
                             <h5 >${param.quantidade}</h5>
                         </div>
                         <div class="col s4 offset-s2 center">
-                            <h5>Real</h5>
-                            <h5>8</h5>
+                            <h5>Total</h5>
+                            <h5><%=quantidadeTotal%></h5>
                         </div>
                     </div>
                     <div class="row ">
@@ -70,35 +82,38 @@
                                 <tr>
                                     <th data-field="id">Ingrediente</th>
                                     <th data-field="name">Quantidade</th>
+                                    <th data-field="name">Parcial</th>
+                                    <th data-field="name">Sobras</th>
                                 </tr>
                             </thead>
 
                             <tbody>
+                                <%for (IngredientePrato ingredientePrato : ingredientesPrato) {
+                                    
+                                    int quantidadeIngrediente = refeicaoDao.quantidadeIngredientePorIntervalo(ingredientePrato.getIngrediente(), intervalo);
+                                %>
                                 <tr>
-                                    <td>Alvin</td>
-                                    <td>Eclair</td>
+                                    <td><%=ingredientePrato.getIngrediente().getNome()%></td>
+                                    <td><%=String.format("%.2f", ingredientePrato.getQuantidade() * quantidadeIngrediente)%> <%=" " + ingredientePrato.getIngrediente().getUnidadeMedida().getSigla()%></td>
+                                    <td><%=quantidadeIngrediente%></td>
+                                    <td class="red-text"><%=String.format("%.2f", (ingredientePrato.getQuantidade() * quantidade)-(ingredientePrato.getQuantidade() * quantidadeIngrediente))%><%=" " + ingredientePrato.getIngrediente().getUnidadeMedida().getSigla()%></td>
                                 </tr>
-                                <tr>
-                                    <td>Alan</td>
-                                    <td>Jellybean</td>
-                                </tr>
-                                <tr>
-                                    <td>Jonathan</td>
-                                    <td>Lollipop</td>
-                                </tr>
+                                <%}%>
                             </tbody>
                         </table>
+                    </div>
+
+                    <div class="row center">
+                        <a class="waves-effect waves-light btn" href="index.jsp">Fechar Relatório</a>
                     </div>
                 </div>
 
             </div>
+
         </main>
 
-        <div class="row right">
-            <a class="waves-effect waves-light btn" href="index.jsp">Fechar Relatório</a>
-        </div>
-        
-        
+
+
     </body>
 </html>
 

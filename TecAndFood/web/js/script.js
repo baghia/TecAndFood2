@@ -40,7 +40,7 @@ $(document).ready(function () {
                     '<b><h6>' + unidadeDeMedida + '</h6></b>' +
                     '</div>' +
                     '</div>');
-            cont++
+
         }
         setContent();
     });
@@ -78,7 +78,7 @@ $(document).ready(function () {
 
     $("#nomeAluno").text("Aguardando leitura...").addClass("green-text");
     $(".hidden").hide();
-    
+
     $(".codigo-hide").show();
     $('.modal-trigger').leanModal();
     $('.tooltipped').tooltip({delay: 50});
@@ -95,6 +95,7 @@ $(document).ready(function () {
     });
 
     function submit() {
+
         $("#nomeAluno").text("Aguardando leitura..").addClass("green-text");
         $(".codigo-hide").show(500);
         $("#matricula").focus();
@@ -112,6 +113,8 @@ $(document).ready(function () {
             data: {matricula: matricula, alimentos_selecionados: alimentos_selecionados.toString()}
         });
         request.done(function (msg) {
+            cont++;
+            $("#quantidadePassadas").text(cont);
 //            alert("Data Saved: " + msg);
         });
         request.fail(function (jqXHR, textStatus) {
