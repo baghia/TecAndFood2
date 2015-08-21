@@ -38,12 +38,14 @@ public class Fechar extends HttpServlet {
         Connection con = conexao.conectar();
         IntervaloDao intervaloDao = new IntervaloDao(conexao, new LoggerTec());
         intervaloDao.setCon(con);
+        
+        int quantidade = Integer.parseInt(request.getParameter("quantidade"));
         boolean sucesso = intervaloDao.alterarStatus(false, intervaloDao.buscarUltimo().getId());
         
         if (sucesso) {
             try {
                 con.commit();
-                response.sendRedirect("../relatorio.jsp");
+                response.sendRedirect("../relatorio.jsp?quantidade="+quantidade);
             } catch (SQLException ex) {
                 Logger.getLogger(Fechar.class.getName()).log(Level.SEVERE, null, ex);
             }

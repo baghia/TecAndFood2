@@ -54,7 +54,7 @@ public class Inserir extends HttpServlet {
             System.out.println(descricaoPrato.toString());
             prato.setIngredientes(ingredientesPrato);
             prato.setNome(descricaoPrato.toString());
-            PratoDao pdao = new PratoDao();
+//            PratoDao pdao = new PratoDao();
         }
         response.sendRedirect("/TecAndFood/home.jsp");
     }

@@ -1,9 +1,26 @@
+<%@page import="model.cardapio.IngredientePrato"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.cardapio.Prato"%>
+<%@page import="dao.cardapio.IngredientePratoDao"%>
+<%@page import="model.util.LoggerTec"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="dao.util.Conexao"%>
 <%@page import="java.util.Locale"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
 <!DOCTYPE html>
+<%
+    Conexao conexao = new Conexao();
+    Connection con = conexao.conectar();
+    IngredientePratoDao ingredientePratoDao = new IngredientePratoDao(conexao, new LoggerTec());
+    ingredientePratoDao.setCon(con);
+    Prato prato = new Prato();
+    prato.setId(1);
+    ArrayList<IngredientePrato> ingredientesPrato = ingredientePratoDao.buscarPorPrato(prato);
+    int quantidade = Integer.parseInt(request.getParameter("quantidade"));
+%>
 <html>
     <head>
         <meta charset="utf-8">
@@ -17,42 +34,42 @@
         <%@include file="navbar.jsp" %>
         <main>
             <div class="container">
-                <div id="content" class="center card" style="position: absolute; padding: 50px;" >
+                <div id="content" class="center card" style="position: absolute; padding: 20px;" >
                     <div class="row">
-                        <h4 class="col s4 offset-s1 center">Esperado</h4>
-                        <h4 class="col s4 offset-s2 center">Real</h4>
+                        <div class="col s4 offset-s1 center">
+                            <h5 >Esperado</h5>
+                            <h5 >${param.quantidade}</h5>
+                        </div>
+                        <div class="col s4 offset-s2 center">
+                            <h5>Real</h5>
+                            <h5>8</h5>
+                        </div>
                     </div>
                     <div class="row ">
-                        <!--<h1>${param.intervalo}</h1>-->
-                        
+                        <!--<h1></h1>-->
+
                         <table class="col s4 offset-s1 centered striped">
                             <thead>
                                 <tr>
-                                    <th data-field="id">Name</th>
-                                    <th data-field="name">Item Name</th>
+                                    <th data-field="id">Ingrediente</th>
+                                    <th data-field="name">Quantidade</th>
                                 </tr>
                             </thead>
 
                             <tbody>
+                                <%for (IngredientePrato ingredientePrato : ingredientesPrato) {%>
                                 <tr>
-                                    <td>Alvin</td>
-                                    <td>Eclair</td>
+                                    <td><%=ingredientePrato.getIngrediente().getNome()%></td>
+                                    <td><%=String.format("%.2f", ingredientePrato.getQuantidade() * quantidade)%> <%=" " + ingredientePrato.getIngrediente().getUnidadeMedida().getSigla()%></td>
                                 </tr>
-                                <tr>
-                                    <td>Alan</td>
-                                    <td>Jellybean</td>
-                                </tr>
-                                <tr>
-                                    <td>Jonathan</td>
-                                    <td>Lollipop</td>
-                                </tr>
+                                <%}%>
                             </tbody>
                         </table>
                         <table class="col s4 offset-s2 centered striped">
                             <thead>
                                 <tr>
-                                    <th data-field="id">Name</th>
-                                    <th data-field="name">Item Name</th>
+                                    <th data-field="id">Ingrediente</th>
+                                    <th data-field="name">Quantidade</th>
                                 </tr>
                             </thead>
 
@@ -78,33 +95,10 @@
         </main>
 
         <div class="row right">
-            <a class="waves-effect waves-light btn modal-trigger" href="#confirmacao">Finalizar Intervalo</a>
+            <a class="waves-effect waves-light btn" href="index.jsp">Fechar Relatório</a>
         </div>
-        <!-- Modal Structure -->
-        <div id="confirmacao" class="modal">
-            <div class="modal-content">
-                <h4>Confirmação</h4>
-                <p>Tem certeza que deseja finalizar o intervalo?</p>
-            </div>
-            <div class="modal-footer">
-                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Sim</a>
-                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Não</a>
-            </div>
-        </div>
-        <footer>
-
-            <div class="container">
-                <div class="row">
-                    <div class="col s12">
-                        <ul class="tabs">
-                            <li class="tab col s3 disabled"><a href="#">Informar Quantidade</a></li>
-                            <li class="tab col s3 disabled"><a  href="#">Preparar Refeição</a></li>
-                            <li class="tab col s3 disabled"><a href="#" class="active">Intervalo</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        
+        
     </body>
 </html>
 

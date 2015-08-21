@@ -38,12 +38,12 @@ public class Inserir extends HttpServlet {
         Connection con = conexao.conectar();
         IntervaloDao intervaloDao = new IntervaloDao(conexao, new LoggerTec());
         intervaloDao.setCon(con);
+        int quantidade = Integer.parseInt(request.getParameter("quantidade"));
         int id = intervaloDao.inserir();
-
         if (id >= 0) {
             try {
                 con.commit();
-                response.sendRedirect("../stepThree.jsp");
+                response.sendRedirect("../stepThree.jsp?quantidade="+quantidade);
             } catch (SQLException ex) {
                 Logger.getLogger(Inserir.class.getName()).log(Level.SEVERE, null, ex);
             }

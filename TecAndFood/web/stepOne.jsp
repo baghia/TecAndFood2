@@ -19,23 +19,23 @@
             <div class="container ">
                 <div id="content" class="center card" style="position: absolute; padding: 10px;" >
 
-<!--                    <div class="row  grey lighten-5 card black-text">
-                        <h5 class="col s4 offset-s4 ">Informar Quantidade</h5>
-                    </div>-->
+                    <!--                    <div class="row  grey lighten-5 card black-text">
+                                            <h5 class="col s4 offset-s4 ">Informar Quantidade</h5>
+                                        </div>-->
                     <div class="row ">
-                        <form class="col s12" action="stepTwo.jsp">
+                        <form class="col s12" action="stepTwo.jsp" method="get">
                             <div class="row">
                                 <div class="input-field col l2 s2 m2 offset-l5 offset-s5 offset-m5">
-                                    <input id="email" type="number" value="100" min="1" step="1" class="center tooltipped" data-tooltip="Informe a quantidade de pratos que serão preparados para essa refeição." data-position="bottom" data-delay="50">
-                                    <label for="email">Quantidade de Pratos</label>
+                                    <input id="quantidade" type="number" value="100" min="1" step="1" name="quantidade" class="center tooltipped" data-tooltip="Informe a quantidade de pratos que serão preparados para essa refeição." data-position="bottom" data-delay="50">
+                                    <label for="quantidade">Quantidade de Pratos</label>
                                 </div>
                             </div>
-                            
-                                <div class="row">
 
-                                    <h6 class="center"><b>Sugestão baseada em dados anteriores: 300 pratos.</b></h6>
-                                </div>
-                            <button class="btn waves-effect waves-light"  type="submit" name="action">Continuar</button>
+                            <div class="row">
+
+                                <h6 class="center"><b>Sugestão baseada em dados anteriores: 300 pratos.</b></h6>
+                            </div>
+                            <button class="btn waves-effect waves-light"  type="submit">Continuar</button>
                         </form>
 
                     </div>

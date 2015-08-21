@@ -70,7 +70,6 @@ $(document).ready(function () {
                         $("#nomeAluno").removeClass("red-text");
                         $("#nomeAluno").removeClass("green-text");
                     }
-
                 }
             });
         }
