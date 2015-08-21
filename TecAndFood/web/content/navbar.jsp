@@ -1,5 +1,5 @@
 <header>
-    <div class="navbar-fixed" style="position: absolute">
+    <!--div class="navbar-fixed" style="position: absolute"-->
         <ul id="drop-aluno" class="dropdown-content">
             <li><a href="../aluno/">Consultar</a></li>
             <!--li><a href="../aluno/">Novo</a></li-->
@@ -32,6 +32,6 @@
                 </ul>
             </div>
         </nav>
-    </div>
+    <!--/div-->
 </header>
 

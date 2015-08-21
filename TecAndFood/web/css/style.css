@@ -51,3 +51,12 @@ main {
 .new a:hover { background-image: url(../images/icons/new_hover.png) }
 .confirm a { background-image: url(../images/icons/confirm.png) }
 .confirm a:hover { background-image: url(../images/icons/confirm_hover.png) }
+#carregando{
+    position: fixed;
+    z-index: 500;
+    background: rgba(255,255,255,0.5);
+    width: 100%;
+    height: 100%;
+    display: none
+}
+.loading{ width: 150px; height: 20px; border-radius: 10px; border: 1px solid #555; background:url(../images/loading.gif) no-repeat; overflow: none; margin: 20% auto}
