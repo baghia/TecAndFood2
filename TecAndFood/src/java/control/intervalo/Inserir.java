@@ -45,7 +45,7 @@ public class Inserir extends HttpServlet {
                 con.commit();
                 response.sendRedirect("../stepThree.jsp?quantidade="+quantidade);
             } catch (SQLException ex) {
-                Logger.getLogger(Inserir.class.getName()).log(Level.SEVERE, null, ex);
+                //Logger.getLogger(Inserir.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

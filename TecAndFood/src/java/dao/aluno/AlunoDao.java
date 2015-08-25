@@ -51,11 +51,11 @@ public class AlunoDao {
             int id = rs.getInt(1);
             return id;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro inserir AlunoDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro inserir AlunoDao. SQLException: ", ex);
             System.out.println("Erro inserir AlunoDao: " + ex.getMessage());
             return -1;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro inserir AlunoDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro inserir AlunoDao. NullPointerException: ", ex);
             System.out.println("Erro inserir AlunoDao: " + ex.getMessage());
             return -1;
         }
@@ -72,11 +72,11 @@ public class AlunoDao {
             ps.execute();
             return true;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro alterarNome(" + valor + ", " + id + ") AlunoDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro alterarNome(" + valor + ", " + id + ") AlunoDao. SQLException: ", ex);
             System.out.println("Erro alterarNome(" + valor + ", " + id + ") AlunoDao: " + ex.getMessage());
             return false;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro alterarNome(" + valor + ", " + id + ") AlunoDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro alterarNome(" + valor + ", " + id + ") AlunoDao. NullPointerException: ", ex);
             System.out.println("Erro alterarNome(" + valor + ", " + id + ") AlunoDao: " + ex.getMessage());
             return false;
         }
@@ -91,11 +91,11 @@ public class AlunoDao {
             ps.execute();
             return true;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro alterarCPF(" + valor + ", " + id + ") AlunoDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro alterarCPF(" + valor + ", " + id + ") AlunoDao. SQLException: ", ex);
             System.out.println("Erro alterarCPF(" + valor + ", " + id + ") AlunoDao: " + ex.getMessage());
             return false;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro alterarCPF(" + valor + ", " + id + ") AlunoDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro alterarCPF(" + valor + ", " + id + ") AlunoDao. NullPointerException: ", ex);
             System.out.println("Erro alterarCPF(" + valor + ", " + id + ") AlunoDao: " + ex.getMessage());
             return false;
         }
@@ -110,11 +110,11 @@ public class AlunoDao {
             ps.execute();
             return true;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro alterarRG(" + valor + ", " + id + ") AlunoDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro alterarRG(" + valor + ", " + id + ") AlunoDao. SQLException: ", ex);
             System.out.println("Erro alterarRG(" + valor + ", " + id + ") AlunoDao: " + ex.getMessage());
             return false;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro alterarRG(" + valor + ", " + id + ") AlunoDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro alterarRG(" + valor + ", " + id + ") AlunoDao. NullPointerException: ", ex);
             System.out.println("Erro alterarRG(" + valor + ", " + id + ") AlunoDao: " + ex.getMessage());
             return false;
         }
@@ -129,11 +129,11 @@ public class AlunoDao {
             ps.execute();
             return true;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro alterarMatricula(" + valor + ", " + id + ") AlunoDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro alterarMatricula(" + valor + ", " + id + ") AlunoDao. SQLException: ", ex);
             System.out.println("Erro alterarMatricula(" + valor + ", " + id + ") AlunoDao: " + ex.getMessage());
             return false;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro alterarMatricula(" + valor + ", " + id + ") AlunoDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro alterarMatricula(" + valor + ", " + id + ") AlunoDao. NullPointerException: ", ex);
             System.out.println("Erro alterarMatricula(" + valor + ", " + id + ") AlunoDao: " + ex.getMessage());
             return false;
         }
@@ -148,11 +148,11 @@ public class AlunoDao {
             ps.execute();
             return true;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro alterarEndereco(" + valor + ", " + id + ") AlunoDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro alterarEndereco(" + valor + ", " + id + ") AlunoDao. SQLException: ", ex);
             System.out.println("Erro alterarEndereco(" + valor + ", " + id + ") AlunoDao: " + ex.getMessage());
             return false;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro alterarEndereco(" + valor + ", " + id + ") AlunoDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro alterarEndereco(" + valor + ", " + id + ") AlunoDao. NullPointerException: ", ex);
             System.out.println("Erro alterarEndereco(" + valor + ", " + id + ") AlunoDao: " + ex.getMessage());
             return false;
         }
@@ -167,11 +167,11 @@ public class AlunoDao {
             ps.execute();
             return true;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro alterarDataNascimento(" + data + ", " + id + ") AlunoDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro alterarDataNascimento(" + data + ", " + id + ") AlunoDao. SQLException: ", ex);
             System.out.println("Erro alterarDataNascimento(" + data + ", " + id + ") AlunoDao: " + ex.getMessage());
             return false;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro alterarDataNascimento(" + data + ", " + id + ") AlunoDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro alterarDataNascimento(" + data + ", " + id + ") AlunoDao. NullPointerException: ", ex);
             System.out.println("Erro alterarDataNascimento(" + data + ", " + id + ") AlunoDao: " + ex.getMessage());
             return false;
         }
@@ -185,11 +185,11 @@ public class AlunoDao {
             ps.execute();
             return true;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro desativar AlunoDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro desativar AlunoDao. SQLException: ", ex);
             System.out.println("Erro desativar AlunoDao: " + ex.getMessage());
             return false;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro desativar AlunoDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro desativar AlunoDao. NullPointerException: ", ex);
             System.out.println("Erro desativar AlunoDao: " + ex.getMessage());
             return false;
         }
@@ -203,11 +203,11 @@ public class AlunoDao {
             ps.execute();
             return true;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro ativar AlunoDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro ativar AlunoDao. SQLException: ", ex);
             System.out.println("Erro ativar AlunoDao: " + ex.getMessage());
             return false;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro ativar AlunoDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro ativar AlunoDao. NullPointerException: ", ex);
             System.out.println("Erro ativar AlunoDao: " + ex.getMessage());
             return false;
         }

@@ -43,11 +43,11 @@ public class CardapioDiarioDao {
             int id = rs.getInt(1);
             return id;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro inserir CardapioDiarioDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro inserir CardapioDiarioDao. SQLException: ", ex);
             System.out.println("Erro inserir CardapioDiarioDao: " + ex.getMessage());
             return -1;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro inserir CardapioDiarioDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro inserir CardapioDiarioDao. NullPointerException: ", ex);
             System.out.println("Erro inserir CardapioDiarioDao: " + ex.getMessage());
             return -1;
         }
@@ -64,11 +64,11 @@ public class CardapioDiarioDao {
             ps.execute();
             return true;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro alterarData(" + valor + ", " + id + ") CardapioDiarioDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro alterarData(" + valor + ", " + id + ") CardapioDiarioDao. SQLException: ", ex);
             System.out.println("Erro alterarData(" + valor + ", " + id + ") CardapioDiarioDao: " + ex.getMessage());
             return false;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro alterarData(" + valor + ", " + id + ") CardapioDiarioDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro alterarData(" + valor + ", " + id + ") CardapioDiarioDao. NullPointerException: ", ex);
             System.out.println("Erro alterarData(" + valor + ", " + id + ") CardapioDiarioDao: " + ex.getMessage());
             return false;
         }
@@ -87,10 +87,10 @@ public class CardapioDiarioDao {
                 cardapios.add(cardapio);
             }
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro listar CardapioDiarioDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro listar CardapioDiarioDao. SQLException: ", ex);
             System.out.println("Erro listar CardapioDiarioDao: " + ex.getMessage());
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro listar CardapioDiarioDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro listar CardapioDiarioDao. NullPointerException: ", ex);
             System.out.println("Erro listar CardapioDiarioDao: " + ex.getMessage());
         }
         return cardapios;

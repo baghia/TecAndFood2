@@ -47,11 +47,11 @@ public class UsuarioDao {
             int id = rs.getInt(1);
             return id;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro inserir UsuarioDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro inserir UsuarioDao. SQLException: ", ex);
             System.out.println("Erro inserir UsuarioDao: " + ex.getMessage());
             return -1;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro inserir UsuarioDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro inserir UsuarioDao. NullPointerException: ", ex);
             System.out.println("Erro inserir UsuarioDao: " + ex.getMessage());
             return -1;
         }

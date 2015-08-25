@@ -47,11 +47,11 @@ public class EnderecoDao {
             int id = rs.getInt(1);  
             return id;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro inserir EnderecoDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro inserir EnderecoDao. SQLException: ", ex);
             System.out.println("Erro inserir EnderecoDao: " + ex.getMessage());
             return -1;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro inserir EnderecoDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro inserir EnderecoDao. NullPointerException: ", ex);
             System.out.println("Erro inserir EnderecoDao: " + ex.getMessage());
             return -1;
         }
@@ -67,11 +67,11 @@ public class EnderecoDao {
             ps.execute();
             return true;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro alterarRua("+ valor +", " + id +") EnderecoDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro alterarRua("+ valor +", " + id +") EnderecoDao. SQLException: ", ex);
             System.out.println("Erro alterarRua("+ valor +", " + id +") EnderecoDao: " + ex.getMessage());
             return false;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro alterarRua("+ valor +", " + id +") EnderecoDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro alterarRua("+ valor +", " + id +") EnderecoDao. NullPointerException: ", ex);
             System.out.println("Erro alterarRua("+ valor +", " + id +") EnderecoDao: " + ex.getMessage());
             return false;
         }
@@ -86,11 +86,11 @@ public class EnderecoDao {
             ps.execute();
             return true;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro alterarBairro("+ valor +", " + id +") EnderecoDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro alterarBairro("+ valor +", " + id +") EnderecoDao. SQLException: ", ex);
             System.out.println("Erro alterarBairro("+ valor +", " + id +") EnderecoDao: " + ex.getMessage());
             return false;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro alterarBairro("+ valor +", " + id +") EnderecoDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro alterarBairro("+ valor +", " + id +") EnderecoDao. NullPointerException: ", ex);
             System.out.println("Erro alterarBairro("+ valor +", " + id +") EnderecoDao: " + ex.getMessage());
             return false;
         }
@@ -105,11 +105,11 @@ public class EnderecoDao {
             ps.execute();
             return true;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro alterarNum("+ valor +", " + id +") EnderecoDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro alterarNum("+ valor +", " + id +") EnderecoDao. SQLException: ", ex);
             System.out.println("Erro alterarNum("+ valor +", " + id +") EnderecoDao: " + ex.getMessage());
             return false;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro alterarNum("+ valor +", " + id +") EnderecoDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro alterarNum("+ valor +", " + id +") EnderecoDao. NullPointerException: ", ex);
             System.out.println("Erro alterarNum("+ valor +", " + id +") EnderecoDao: " + ex.getMessage());
             return false;
         }
@@ -124,11 +124,11 @@ public class EnderecoDao {
             ps.execute();
             return true;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro alterarCidade("+ valor +", " + id +") EnderecoDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro alterarCidade("+ valor +", " + id +") EnderecoDao. SQLException: ", ex);
             System.out.println("Erro alterarCidade("+ valor +", " + id +") EnderecoDao: " + ex.getMessage());
             return false;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro alterarCidade("+ valor +", " + id +") EnderecoDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro alterarCidade("+ valor +", " + id +") EnderecoDao. NullPointerException: ", ex);
             System.out.println("Erro alterarCidade("+ valor +", " + id +") EnderecoDao: " + ex.getMessage());
             return false;
         }
@@ -143,11 +143,11 @@ public class EnderecoDao {
             ps.execute();
             return true;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro alterarEstado("+ valor +", " + id +") EnderecoDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro alterarEstado("+ valor +", " + id +") EnderecoDao. SQLException: ", ex);
             System.out.println("Erro alterarEstado("+ valor +", " + id +") EnderecoDao: " + ex.getMessage());
             return false;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro alterarEstado("+ valor +", " + id +") EnderecoDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro alterarEstado("+ valor +", " + id +") EnderecoDao. NullPointerException: ", ex);
             System.out.println("Erro alterarEstado("+ valor +", " + id +") EnderecoDao: " + ex.getMessage());
             return false;
         }
@@ -162,11 +162,11 @@ public class EnderecoDao {
             ps.execute();
             return true;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro alterarCEP("+ valor +", " + id +") EnderecoDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro alterarCEP("+ valor +", " + id +") EnderecoDao. SQLException: ", ex);
             System.out.println("Erro alterarCEP("+ valor +", " + id +") EnderecoDao: " + ex.getMessage());
             return false;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro alterarCEP("+ valor +", " + id +") EnderecoDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro alterarCEP("+ valor +", " + id +") EnderecoDao. NullPointerException: ", ex);
             System.out.println("Erro alterarCEP("+ valor +", " + id +") EnderecoDao: " + ex.getMessage());
             return false;
         }
@@ -194,10 +194,10 @@ public class EnderecoDao {
                 enderecos.add(endereco);
             }
         } catch(SQLException ex){
-            this.logger.logSevere("Erro listar EnderecoDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro listar EnderecoDao. SQLException: ", ex);
             System.out.println("Erro listar EnderecoDao: " + ex.getMessage());
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro listar EnderecoDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro listar EnderecoDao. NullPointerException: ", ex);
             System.out.println("Erro listar EnderecoDao: " + ex.getMessage());
         }
         return enderecos;
@@ -220,10 +220,10 @@ public class EnderecoDao {
                 endereco.setCep(rs.getString("cep"));
             }
         } catch(SQLException ex){
-            this.logger.logSevere("Erro consultar("+ id +") EnderecoDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro consultar("+ id +") EnderecoDao. SQLException: ", ex);
             System.out.println("Erro consultar("+ id +") EnderecoDao: " + ex.getMessage());
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro consultar("+ id +") EnderecoDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro consultar("+ id +") EnderecoDao. NullPointerException: ", ex);
             System.out.println("Erro consultar("+ id +") EnderecoDao: " + ex.getMessage());
         }
         return endereco;
@@ -245,10 +245,10 @@ public class EnderecoDao {
                 endereco.getEstado().setSigla(rs.getString("sigla"));
             }
         } catch(SQLException ex){
-            this.logger.logSevere("Erro consultarFull("+ id +") EnderecoDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro consultarFull("+ id +") EnderecoDao. SQLException: ", ex);
             System.out.println("Erro consultarFull("+ id +") EnderecoDao: " + ex.getMessage());
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro consultarFull("+ id +") EnderecoDao. NullPointerException: ", ex);
+            //.logger.logSevere("Erro consultarFull("+ id +") EnderecoDao. NullPointerException: ", ex);
             System.out.println("Erro consultarFull("+ id +") EnderecoDao: " + ex.getMessage());
         }
         return endereco;

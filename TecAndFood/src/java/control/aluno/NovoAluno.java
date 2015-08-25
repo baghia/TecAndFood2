@@ -60,10 +60,10 @@ public class NovoAluno extends HttpServlet {
                 try {
                     alunoDao.getCon().commit();
                     conexao.fechar();
-                    logger.logInfo("NovoAluno> Aluno inserido com sucesso.");
+                    //logger.logInfo("NovoAluno> Aluno inserido com sucesso.");
                     response.sendRedirect("../content/aluno/index.jsp?e=0");
                 } catch (SQLException ex) {
-                    logger.logSevere("NovoAluno > e=. SQLException: ", ex);
+                    //logger.logSevere("NovoAluno > e=. SQLException: ", ex);
                     System.out.println("SQLException lançada em NovoAluno: " + ex.getMessage());
                     conexao.fechar();
                     response.sendRedirect("../content/aluno/index.jsp?e=12"); //erro atividade
@@ -72,10 +72,10 @@ public class NovoAluno extends HttpServlet {
                 try {
                     alunoDao.getCon().rollback();
                     conexao.fechar();
-                    logger.logWarning("NovoAluno> Erro ao inserir aluno.");
+                    //logger.logWarning("NovoAluno> Erro ao inserir aluno.");
                     response.sendRedirect("../content/aluno/index.jsp?e=0");
                 } catch (SQLException ex) {
-                    logger.logSevere("NovoAluno > e=. SQLException: ", ex);
+                    //logger.logSevere("NovoAluno > e=. SQLException: ", ex);
                     System.out.println("SQLException lançada em NovoAluno: " + ex.getMessage());
                     conexao.fechar();
                     response.sendRedirect("../content/aluno/index.jsp?e=12"); //erro atividade
@@ -83,15 +83,15 @@ public class NovoAluno extends HttpServlet {
             }
 
         } catch (ParseException parse) {
-            logger.logSevere("NovoPedido > ParseException: ", parse);
+            //logger.logSevere("NovoPedido > ParseException: ", parse);
             System.out.println("ParseException lançada em novoPedido: " + parse.getMessage());
             response.sendRedirect("../content/aluno/index.jsp?e=103");
         } catch (NullPointerException nullPointer) {
-            logger.logSevere("NovoPedido > NullPointerException: ", nullPointer);
+            //logger.logSevere("NovoPedido > NullPointerException: ", nullPointer);
             System.out.println("NullPointerException lançada em novoPedido: " + nullPointer.getMessage());
             response.sendRedirect("../content/aluno/index.jsp?e=102");
         } catch (IOException io) {
-            logger.logSevere("NovoPedido > IOException: ", io);
+            //logger.logSevere("NovoPedido > IOException: ", io);
             System.out.println("IOException lançada em NovoPedido: " + io.getMessage());
         }
     }

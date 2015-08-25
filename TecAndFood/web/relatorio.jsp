@@ -60,7 +60,7 @@
                     <div class="row ">
                         <!--<h1></h1>-->
 
-                        <table class="col s4 offset-s1 centered striped">
+                        <table class="col s5  centered striped">
                             <thead>
                                 <tr>
                                     <th data-field="id">Ingrediente</th>
@@ -77,7 +77,7 @@
                                 <%}%>
                             </tbody>
                         </table>
-                        <table class="col s4 offset-s2 centered striped">
+                        <table class="col s5 offset-s2 centered striped">
                             <thead>
                                 <tr>
                                     <th data-field="id">Ingrediente</th>

@@ -54,11 +54,11 @@ public class RefeicaoDao {
             ps.execute();
             return true;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro inserir IngredienteDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro inserir IngredienteDao. SQLException: ", ex);
             System.out.println("Erro inserir IngredienteDao: " + ex.getMessage());
             return false;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro inserir IngredienteDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro inserir IngredienteDao. NullPointerException: ", ex);
             System.out.println("Erro inserir IngredienteDao: " + ex.getMessage());
             return false;
         }
@@ -79,10 +79,10 @@ public class RefeicaoDao {
                 quantidade = rs.getInt(1);
             }
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro quantidadePorIntervalo (" + intervalo.getId() + ") RefeicaoDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro quantidadePorIntervalo (" + intervalo.getId() + ") RefeicaoDao. SQLException: ", ex);
             System.out.println("Erro quantidadePorIntervalo( " + intervalo.getId() + ") RefeicaoDao: " + ex.getMessage());
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro quantidadePorIntervalo(" + intervalo.getId() + ") RefeicaoDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro quantidadePorIntervalo(" + intervalo.getId() + ") RefeicaoDao. NullPointerException: ", ex);
             System.out.println("Erro quantidadePorIntervalo(" + intervalo.getId() + ") RefeicaoDao: " + ex.getMessage());
         }
         return quantidade;
@@ -102,10 +102,10 @@ public class RefeicaoDao {
                 quantidade = rs.getInt(1);
             }
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro quantidadePorIntervalo (" + intervalo.getId() + ") RefeicaoDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro quantidadePorIntervalo (" + intervalo.getId() + ") RefeicaoDao. SQLException: ", ex);
             System.out.println("Erro quantidadePorIntervalo( " + intervalo.getId() + ") RefeicaoDao: " + ex.getMessage());
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro quantidadePorIntervalo(" + intervalo.getId() + ") RefeicaoDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro quantidadePorIntervalo(" + intervalo.getId() + ") RefeicaoDao. NullPointerException: ", ex);
             System.out.println("Erro quantidadePorIntervalo(" + intervalo.getId() + ") RefeicaoDao: " + ex.getMessage());
         }
         return quantidade;

@@ -49,11 +49,11 @@ public class PratoCardapioDiarioDao {
             int id = rs.getInt(1);
             return id;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro inserir PratoCardapioDiarioDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro inserir PratoCardapioDiarioDao. SQLException: ", ex);
             System.out.println("Erro inserir PratoCardapioDiarioDao: " + ex.getMessage());
             return -1;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro inserir PratoCardapioDiarioDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro inserir PratoCardapioDiarioDao. NullPointerException: ", ex);
             System.out.println("Erro inserir PratoCardapioDiarioDao: " + ex.getMessage());
             return -1;
         }
@@ -70,11 +70,11 @@ public class PratoCardapioDiarioDao {
             ps.execute();
             return true;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro alterarPrato(" + valor + ", " + id + ") PratoCardapioDiarioDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro alterarPrato(" + valor + ", " + id + ") PratoCardapioDiarioDao. SQLException: ", ex);
             System.out.println("Erro alterarPrato(" + valor + ", " + id + ") PratoCardapioDiarioDao: " + ex.getMessage());
             return false;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro alterarPrato(" + valor + ", " + id + ") PratoCardapioDiarioDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro alterarPrato(" + valor + ", " + id + ") PratoCardapioDiarioDao. NullPointerException: ", ex);
             System.out.println("Erro alterarPrato(" + valor + ", " + id + ") PratoCardapioDiarioDao: " + ex.getMessage());
             return false;
         }
@@ -89,11 +89,11 @@ public class PratoCardapioDiarioDao {
             ps.execute();
             return true;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro alterarCardapio(" + valor + ", " + id + ") PratoCardapioDiarioDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro alterarCardapio(" + valor + ", " + id + ") PratoCardapioDiarioDao. SQLException: ", ex);
             System.out.println("Erro alterarCardapio(" + valor + ", " + id + ") PratoCardapioDiarioDao: " + ex.getMessage());
             return false;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro alterarCardapio(" + valor + ", " + id + ") PratoCardapioDiarioDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro alterarCardapio(" + valor + ", " + id + ") PratoCardapioDiarioDao. NullPointerException: ", ex);
             System.out.println("Erro alterarCardapio(" + valor + ", " + id + ") PratoCardapioDiarioDao: " + ex.getMessage());
             return false;
         }
@@ -108,11 +108,11 @@ public class PratoCardapioDiarioDao {
             ps.execute();
             return true;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro alterarTurno(" + valor + ", " + id + ") PratoCardapioDiarioDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro alterarTurno(" + valor + ", " + id + ") PratoCardapioDiarioDao. SQLException: ", ex);
             System.out.println("Erro alterarTurno(" + valor + ", " + id + ") PratoCardapioDiarioDao: " + ex.getMessage());
             return false;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro alterarTurno(" + valor + ", " + id + ") PratoCardapioDiarioDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro alterarTurno(" + valor + ", " + id + ") PratoCardapioDiarioDao. NullPointerException: ", ex);
             System.out.println("Erro alterarTurno(" + valor + ", " + id + ") PratoCardapioDiarioDao: " + ex.getMessage());
             return false;
         }

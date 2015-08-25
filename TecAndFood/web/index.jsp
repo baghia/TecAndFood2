@@ -21,11 +21,10 @@
                             <%
                                 DateFormat dfmt = new SimpleDateFormat("EEEE, d 'de' MMMM 'de' yyyy");
                                 Date hoje = Calendar.getInstance(Locale.getDefault()).getTime();%>
-                            <%=dfmt.format(hoje)%> </span>
+                            <span><%=dfmt.format(hoje)%> </span>
                         </h5>
 
                     </div>
-
                     <div class="row">
                         <div class="col s12 m6">
                             <a href="stepOne.jsp">

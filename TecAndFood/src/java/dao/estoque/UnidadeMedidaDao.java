@@ -38,11 +38,11 @@ public class UnidadeMedidaDao {
             i = ps.execute();
             return i;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro inserir UnidadeMedidaDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro inserir UnidadeMedidaDao. SQLException: ", ex);
             System.out.println("Erro inserir UnidadeMedidaDao: " + ex.getMessage());
             return false;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro inserir UnidadeMedidaDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro inserir UnidadeMedidaDao. NullPointerException: ", ex);
             System.out.println("Erro inserir UnidadeMedidaDao: " + ex.getMessage());
             return false;
         }
@@ -60,11 +60,11 @@ public class UnidadeMedidaDao {
             i = ps.execute();
             return i;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro alterarNome("+ valor +", " + id +") UnidadeMedidaDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro alterarNome("+ valor +", " + id +") UnidadeMedidaDao. SQLException: ", ex);
             System.out.println("Erro alterarNome("+ valor +", " + id +") UnidadeMedidaDao: " + ex.getMessage());
             return false;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro alterarNome("+ valor +", " + id +") UnidadeMedidaDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro alterarNome("+ valor +", " + id +") UnidadeMedidaDao. NullPointerException: ", ex);
             System.out.println("Erro alterarNome("+ valor +", " + id +") UnidadeMedidaDao: " + ex.getMessage());
             return false;
         }
@@ -80,11 +80,11 @@ public class UnidadeMedidaDao {
             i = ps.execute();
             return i;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro alterarSigla("+ valor +", " + id +") UnidadeMedidaDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro alterarSigla("+ valor +", " + id +") UnidadeMedidaDao. SQLException: ", ex);
             System.out.println("Erro alterarSigla("+ valor +", " + id +") UnidadeMedidaDao: " + ex.getMessage());
             return false;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro alterarSigla("+ valor +", " + id +") UnidadeMedidaDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro alterarSigla("+ valor +", " + id +") UnidadeMedidaDao. NullPointerException: ", ex);
             System.out.println("Erro alterarSigla("+ valor +", " + id +") UnidadeMedidaDao: " + ex.getMessage());
             return false;
         }
@@ -105,10 +105,10 @@ public class UnidadeMedidaDao {
                 unidadesMedida.add(unidadeMedida);            
             }
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro listar UnidadeMedidaDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro listar UnidadeMedidaDao. SQLException: ", ex);
             System.out.println("Erro listar UnidadeMedidaDao: " + ex.getMessage());
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro listar UnidadeMedidaDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro listar UnidadeMedidaDao. NullPointerException: ", ex);
             System.out.println("Erro listar UnidadeMedidaDao: " + ex.getMessage());
         }
         return unidadesMedida;
@@ -128,10 +128,10 @@ public class UnidadeMedidaDao {
                 unidadeMedida.setSigla(rs.getString("sigla"));           
             }
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro consultar("+ id +") UnidadeMedidaDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro consultar("+ id +") UnidadeMedidaDao. SQLException: ", ex);
             System.out.println("Erro consultar("+ id +") UnidadeMedidaDao: " + ex.getMessage());
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro consultar("+ id +") UnidadeMedidaDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro consultar("+ id +") UnidadeMedidaDao. NullPointerException: ", ex);
             System.out.println("Erro consultar("+ id +") UnidadeMedidaDao: " + ex.getMessage());
         }
         return unidadeMedida;

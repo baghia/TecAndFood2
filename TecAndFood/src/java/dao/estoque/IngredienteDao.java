@@ -52,11 +52,11 @@ public class IngredienteDao {
             int id = rs.getInt(1);
             return id;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro inserir IngredienteDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro inserir IngredienteDao. SQLException: ", ex);
             System.out.println("Erro inserir IngredienteDao: " + ex.getMessage());
             return -1;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro inserir IngredienteDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro inserir IngredienteDao. NullPointerException: ", ex);
             System.out.println("Erro inserir IngredienteDao: " + ex.getMessage());
             return -1;
         }
@@ -72,11 +72,11 @@ public class IngredienteDao {
             ps.execute();
             return true;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro alterarNome(" + valor + ", " + id + ") IngredienteDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro alterarNome(" + valor + ", " + id + ") IngredienteDao. SQLException: ", ex);
             System.out.println("Erro alterarNome(" + valor + ", " + id + ") IngredienteDao: " + ex.getMessage());
             return false;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro alterarNome(" + valor + ", " + id + ") IngredienteDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro alterarNome(" + valor + ", " + id + ") IngredienteDao. NullPointerException: ", ex);
             System.out.println("Erro alterarNome(" + valor + ", " + id + ") IngredienteDao: " + ex.getMessage());
             return false;
         }
@@ -91,11 +91,11 @@ public class IngredienteDao {
             ps.execute();
             return true;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro alterarUnidadeMedida(" + valor + ", " + id + ") IngredienteDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro alterarUnidadeMedida(" + valor + ", " + id + ") IngredienteDao. SQLException: ", ex);
             System.out.println("Erro alterarUnidadeMedida(" + valor + ", " + id + ") IngredienteDao: " + ex.getMessage());
             return false;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro alterarUnidadeMedida(" + valor + ", " + id + ") IngredienteDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro alterarUnidadeMedida(" + valor + ", " + id + ") IngredienteDao. NullPointerException: ", ex);
             System.out.println("Erro alterarUnidadeMedida(" + valor + ", " + id + ") IngredienteDao: " + ex.getMessage());
             return false;
         }
@@ -123,10 +123,10 @@ public class IngredienteDao {
                 ingredientes.add(ingrediente);
             }
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro listar IngredienteDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro listar IngredienteDao. SQLException: ", ex);
             System.out.println("Erro listar IngredienteDao: " + ex.getMessage());
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro listar IngredienteDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro listar IngredienteDao. NullPointerException: ", ex);
             System.out.println("Erro listar IngredienteDao: " + ex.getMessage());
         }
         return ingredientes;
@@ -154,10 +154,10 @@ public class IngredienteDao {
                 ingredientes.add(ingrediente);
             }
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro listar(" + offset + ") IngredienteDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro listar(" + offset + ") IngredienteDao. SQLException: ", ex);
             System.out.println("Erro listar(" + offset + ") IngredienteDao: " + ex.getMessage());
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro listar(" + offset + ") IngredienteDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro listar(" + offset + ") IngredienteDao. NullPointerException: ", ex);
             System.out.println("Erro listar(" + offset + ") IngredienteDao: " + ex.getMessage());
         }
         return ingredientes;
@@ -183,10 +183,10 @@ public class IngredienteDao {
                 ingrediente.setUnidadeMedida(unidadeMedida);
             }
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro consultar(" + id + ") IngredienteDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro consultar(" + id + ") IngredienteDao. SQLException: ", ex);
             System.out.println("Erro consultar(" + id + ") IngredienteDao: " + ex.getMessage());
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro consultar(" + id + ") IngredienteDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro consultar(" + id + ") IngredienteDao. NullPointerException: ", ex);
             System.out.println("Erro consultar(" + id + ") IngredienteDao: " + ex.getMessage());
         }
         return ingrediente;
@@ -223,10 +223,10 @@ public class IngredienteDao {
                 ingredientes.add(ingrediente);
             }
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro pesquisar(" + sql + ") IngredienteDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro pesquisar(" + sql + ") IngredienteDao. SQLException: ", ex);
             System.out.println("Erro pesquisar(" + sql + ") IngredienteDao: " + ex.getMessage());
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro pesquisar(" + sql + ") IngredienteDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro pesquisar(" + sql + ") IngredienteDao. NullPointerException: ", ex);
             System.out.println("Erro pesquisar(" + sql + ") IngredienteDao: " + ex.getMessage());
         }
         return ingredientes;
@@ -263,10 +263,10 @@ public class IngredienteDao {
                 ingredientes.add(ingrediente);
             }
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro pesquisarOffset(" + sql + ", " + offset + ") IngredienteDao. SQLException: ", ex);
+           // this.logger.logSevere("Erro pesquisarOffset(" + sql + ", " + offset + ") IngredienteDao. SQLException: ", ex);
             System.out.println("Erro pesquisarOffset(" + sql + ", " + offset + ") IngredienteDao: " + ex.getMessage());
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro pesquisarOffset(" + sql + ", " + offset + ") IngredienteDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro pesquisarOffset(" + sql + ", " + offset + ") IngredienteDao. NullPointerException: ", ex);
             System.out.println("Erro pesquisarOffset(" + sql + ", " + offset + ") IngredienteDao: " + ex.getMessage());
         }
         return ingredientes;
@@ -291,10 +291,10 @@ public class IngredienteDao {
                 }
             }
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro calcularPaginacao IngredienteDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro calcularPaginacao IngredienteDao. SQLException: ", ex);
             System.out.println("Erro ingredienteDao calcularPaginacao: " + ex.getMessage());
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro calcularPaginacao IngredienteDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro calcularPaginacao IngredienteDao. NullPointerException: ", ex);
             System.out.println("Erro ingredienteDao calcularPaginacao: " + ex.getMessage());
         }
         return result;
@@ -332,10 +332,10 @@ public class IngredienteDao {
                 }
             }
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro calcularPaginacaoPesquisaLivre(" + sql + ") IngredienteDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro calcularPaginacaoPesquisaLivre(" + sql + ") IngredienteDao. SQLException: ", ex);
             System.out.println("Erro ingredienteDao calcularPaginacaoPesquisaLivre(" + sql + "): " + ex.getMessage());
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro calcularPaginacaoPesquisaLivre(" + sql + ") IngredienteDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro calcularPaginacaoPesquisaLivre(" + sql + ") IngredienteDao. NullPointerException: ", ex);
             System.out.println("Erro ingredienteDao calcularPaginacaoPesquisaLivre(" + sql + "): " + ex.getMessage());
         }
         return result;

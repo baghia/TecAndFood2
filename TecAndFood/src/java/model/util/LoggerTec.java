@@ -18,10 +18,11 @@ public class LoggerTec {
     public SimpleFormatter simpleFormatter;
 
     public LoggerTec(Usuario user) throws SecurityException, IOException {
-        Date data = new Date();
+        /*Date data = new Date();
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
         System.out.println(format.format(data));
-        String nome = "%h/logs/log_" + user.getNome() + "_" + format.format(data) + ".log";
+        //String nome = "%h/logs/log_" + user.getNome() + "_" + format.format(data) + ".log";
+        String nome = "C:/Users/Cliente/Documents/logs/logsTecAndFood/log" + user.getNome() + "_" + format.format(data) + ".log";
 
         this.simpleFormatter = new SimpleFormatter();
 
@@ -34,11 +35,11 @@ public class LoggerTec {
         this.consoleHandler.setFormatter(simpleFormatter);
 
         this.logger.addHandler(fileHandler);
-        this.logger.removeHandler(consoleHandler);
+        this.logger.removeHandler(consoleHandler);*/
     }
 
     public LoggerTec() throws SecurityException, IOException {
-        Date data = new Date();
+        /*Date data = new Date();
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
         System.out.println(format.format(data));
         String nome = "%h/logs/log_" + format.format(data) + ".log";
@@ -54,7 +55,7 @@ public class LoggerTec {
         this.consoleHandler.setFormatter(simpleFormatter);
 
         this.logger.addHandler(fileHandler);
-        this.logger.removeHandler(consoleHandler);
+        this.logger.removeHandler(consoleHandler);*/
     }
 
     public void logInfo(String message) {

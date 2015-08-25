@@ -47,7 +47,7 @@ public class Fechar extends HttpServlet {
                 con.commit();
                 response.sendRedirect("../relatorio.jsp?quantidade="+quantidade);
             } catch (SQLException ex) {
-                Logger.getLogger(Fechar.class.getName()).log(Level.SEVERE, null, ex);
+                //Logger.getLogger(Fechar.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

@@ -41,11 +41,11 @@ public class IntervaloDao {
             int id = rs.getInt(1);
             return id;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro inserir IntervaloDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro inserir IntervaloDao. SQLException: ", ex);
             System.out.println("Erro inserir IntervaloDao: " + ex.getMessage());
             return -1;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro inserir IntervaloDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro inserir IntervaloDao. NullPointerException: ", ex);
             System.out.println("Erro inserir IntervaloDao: " + ex.getMessage());
             return -1;
         }
@@ -62,11 +62,11 @@ public class IntervaloDao {
             ps.execute();
             return true;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro alterarNome(" + valor + ", " + id + ") AlunoDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro alterarNome(" + valor + ", " + id + ") AlunoDao. SQLException: ", ex);
             System.out.println("Erro alterarNome(" + valor + ", " + id + ") AlunoDao: " + ex.getMessage());
             return false;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro alterarNome(" + valor + ", " + id + ") AlunoDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro alterarNome(" + valor + ", " + id + ") AlunoDao. NullPointerException: ", ex);
             System.out.println("Erro alterarNome(" + valor + ", " + id + ") AlunoDao: " + ex.getMessage());
             return false;
         }
@@ -85,10 +85,10 @@ public class IntervaloDao {
                 intervalo.setAtivo(rs.getBoolean("ativo"));
             }
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro buscarUltimo IntervaloDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro buscarUltimo IntervaloDao. SQLException: ", ex);
             System.out.println("Erro buscarUltimo IntervaloDao: " + ex.getMessage());
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro buscarUltimo IntervaloDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro buscarUltimo IntervaloDao. NullPointerException: ", ex);
             System.out.println("Erro buscarUltimo IntervaloDao: " + ex.getMessage());
         }
         return intervalo;

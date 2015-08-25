@@ -42,11 +42,11 @@ public class ContatoDao {
             ps.execute();
             return true;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro inserir ContatoDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro inserir ContatoDao. SQLException: ", ex);
             System.out.println("Erro inserir ContatoDao: " + ex.getMessage());
             return false;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro inserir ContatoDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro inserir ContatoDao. NullPointerException: ", ex);
             System.out.println("Erro iinserir ContatoDao: " + ex.getMessage());
             return false;
         }
@@ -62,11 +62,11 @@ public class ContatoDao {
             ps.execute();
             return true;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro alterarAluno(" + valor + ", " + id + ") ContatoDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro alterarAluno(" + valor + ", " + id + ") ContatoDao. SQLException: ", ex);
             System.out.println("Erro alterarAluno(" + valor + ", " + id + ") ContatoDao: " + ex.getMessage());
             return false;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro alterarAluno(" + valor + ", " + id + ") ContatoDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro alterarAluno(" + valor + ", " + id + ") ContatoDao. NullPointerException: ", ex);
             System.out.println("Erro alterarAluno(" + valor + ", " + id + ") ContatoDao: " + ex.getMessage());
             return false;
         }
@@ -81,11 +81,11 @@ public class ContatoDao {
             ps.execute();
             return true;
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro alterarValor(" + valor + ", " + id + ") ContatoDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro alterarValor(" + valor + ", " + id + ") ContatoDao. SQLException: ", ex);
             System.out.println("Erro alterarValor(" + valor + ", " + id + ") ContatoDao: " + ex.getMessage());
             return false;
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro alterarValor(" + valor + ", " + id + ") ContatoDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro alterarValor(" + valor + ", " + id + ") ContatoDao. NullPointerException: ", ex);
             System.out.println("Erro alterarValor(" + valor + ", " + id + ") ContatoDao: " + ex.getMessage());
             return false;
         }
@@ -106,10 +106,10 @@ public class ContatoDao {
                 contato.setValor(rs.getString("valor"));
             }
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro buscar("+ aluno +") ContatoDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro buscar("+ aluno +") ContatoDao. SQLException: ", ex);
             System.out.println("Erro buscar("+ aluno +") ContatoDao: " + ex.getMessage());
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro buscar("+ aluno +") ContatoDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro buscar("+ aluno +") ContatoDao. NullPointerException: ", ex);
             System.out.println("Erro buscar("+ aluno +") ContatoDao: " + ex.getMessage());
         }
         return contato;

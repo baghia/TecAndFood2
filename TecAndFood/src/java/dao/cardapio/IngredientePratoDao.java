@@ -15,6 +15,7 @@ import model.aluno.Aluno;
 import model.cardapio.IngredientePrato;
 import model.cardapio.Prato;
 import model.estoque.Ingrediente;
+
 import model.estoque.UnidadeMedida;
 import model.util.LoggerTec;
 
@@ -73,10 +74,10 @@ public class IngredientePratoDao {
                 ingredientePratos.add(ingredientePrato);
             }
         } catch (SQLException ex) {
-            this.logger.logSevere("Erro buscarPorPrato" + prato.getId() + ") IngredientePratoDao. SQLException: ", ex);
+            //this.logger.logSevere("Erro buscarPorPrato" + prato.getId() + ") IngredientePratoDao. SQLException: ", ex);
             System.out.println("Erro buscarPorPrato" + prato.getId() + ") IngredientePratoDao: " + ex.getMessage());
         } catch (NullPointerException ex) {
-            this.logger.logSevere("Erro buscarPorPrato" + prato.getId() + ") IngredientePratoDao. NullPointerException: ", ex);
+            //this.logger.logSevere("Erro buscarPorPrato" + prato.getId() + ") IngredientePratoDao. NullPointerException: ", ex);
             System.out.println("Erro buscarPorPrato" + prato.getId() + ") IngredientePratoDao: " + ex.getMessage());
         }
         return ingredientePratos;
