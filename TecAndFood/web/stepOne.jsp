@@ -27,13 +27,13 @@
                             <div class="row">
                                 <div class="input-field col l2 s2 m2 offset-l5 offset-s5 offset-m5">
                                     <input id="quantidade" type="number" value="100" min="1" step="1" name="quantidade" class="center tooltipped" data-tooltip="Informe a quantidade de pratos que serão preparados para essa refeição." data-position="bottom" data-delay="50">
-                                    <label for="quantidade">Quantidade de Pratos</label>
+                                    <label for="quantidade">Quantidade de Alunos</label>
                                 </div>
                             </div>
 
                             <div class="row">
 
-                                <h6 class="center"><b>Sugestão baseada em dados anteriores: 300 pratos.</b></h6>
+                                <h6 class="center"><b>Sugestão baseada em dados anteriores: 155 alunos.</b></h6>
                             </div>
                             <button class="btn waves-effect waves-light"  type="submit">Continuar</button>
                         </form>

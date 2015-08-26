@@ -4,10 +4,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Intervalo {
+
     private int id;
     private java.util.Date dataHora;
-    private java.sql.Date dataHoraSql;
+    private java.sql.Timestamp dataHoraSql;
     private boolean ativo;
+    private int qtdEsperada;
 
     public int getId() {
         return id;
@@ -17,7 +19,7 @@ public class Intervalo {
         return dataHora;
     }
 
-    public java.sql.Date getDataHoraSql() {
+    public java.sql.Timestamp getDataHoraSql() {
         return dataHoraSql;
     }
 
@@ -31,10 +33,10 @@ public class Intervalo {
 
     public void setDataHora(Date dataHora) {
         this.dataHora = dataHora;
-        this.dataHoraSql = new java.sql.Date(dataHora.getTime());
+        this.dataHoraSql = new java.sql.Timestamp(dataHora.getTime());
     }
 
-    public void setDataHoraSql(java.sql.Date dataHoraSql) {
+    public void setDataHoraSql(java.sql.Timestamp dataHoraSql) {
         this.dataHoraSql = dataHoraSql;
         this.dataHora = new java.util.Date(dataHoraSql.getTime());
     }
@@ -42,11 +44,20 @@ public class Intervalo {
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
     }
-    
+
     public String dataHora() {
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        
+        SimpleDateFormat formato = new SimpleDateFormat("EEEE, d 'de' MMMM 'de' yyyy - HH:mm");
         String format = formato.format(this.dataHora);
         return format;
     }
-    
+
+    public int getQtdEsperada() {
+        return qtdEsperada;
+    }
+
+    public void setQtdEsperada(int qtdEsperada) {
+        this.qtdEsperada = qtdEsperada;
+    }
+
 }
