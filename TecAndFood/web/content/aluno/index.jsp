@@ -59,6 +59,7 @@
                 $("[name=cpf").mask("999.999.999-99");
                 $("[name=rg]").mask("9.999.999");
                 $("[name=data]").mask("99/99/9999");
+                $(".nav-wrapper ul li:nth-child(2)").addClass("active");
             <%
                 if (e > -1) {
                     switch (e) {
@@ -129,7 +130,7 @@
                 <% int i = 0;
                     if (paginas > 0) { %>
                 <div class="row s10 offset-s1">
-                    <table class='bordered hoverable striped responsive-table'>
+                    <table class='bordered hoverable striped responsive-table col s10 offset-s1'>
                         <thead class="hide-on-med-and-down">
                             <tr>
                                 <th></th>

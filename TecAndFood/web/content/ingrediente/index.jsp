@@ -43,6 +43,11 @@
         <script type="text/javascript" src="../../js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="../../js/bin/materialize.min.js"></script>
         <script src="../../js/script.js"></script>
+        <script>
+            $(document).ready(function(){                
+                $(".nav-wrapper ul li:nth-child(3)").addClass("active");
+            });
+        </script>
     </head>
     <body onload="setContent()" onresize="setContent()">
         <%@include file="../navbar.jsp" %>

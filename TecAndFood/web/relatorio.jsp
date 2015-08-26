@@ -48,81 +48,119 @@
     </head>
     <body onload="setContent()" onresize="setContent()">
         <%@include file="navbar.jsp" %>
-        <main>
-            <div class="container">
-                <div id="content" class="center card" style="padding: 20px;" >
-                    <div class="row">
+    <main>
+        <div class="container">
+            <div id="content" class="center card" style="padding: 20px;" >
+                <div class="row">
 
-                        <h6><%=intervalo.dataHora()%></h6>
+                    <h6><%=intervalo.dataHora()%></h6>
+                </div>
+                <div class="row">
+                    <div class="col s5 center">
+                        <h5 >Total de Alunos Esperado: <%=quantidadeEsperada%></h5>
                     </div>
-                    <div class="row">
-                        <div class="col s4 offset-s1 center">
-                            <h5 >Quantidade de Alunos Esperados</h5>
-                            <h5 ><%=quantidadeEsperada%></h5>
-                        </div>
-                        <div class="col s4 offset-s2 center">
-                            <h5>Quantidade de Alunos Servidos</h5>
-                            <h5><%=quantidadeTotal%></h5>
-                        </div>
-                    </div>
-                    <div class="row ">
-                        <!--<h1></h1>-->
-
-                        <table class="col s5  centered striped">
-                            <thead>
-                                <tr>
-                                    <th data-field="id">Ingrediente</th>
-                                    <th data-field="name">Quantidade</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <%for (IngredientePrato ingredientePrato : ingredientesPrato) {%>
-                                <tr>
-                                    <td><%=ingredientePrato.getIngrediente().getNome()%></td>
-                                    <td><%=String.format("%.2f", ingredientePrato.getQuantidade() * quantidadeEsperada)%> <%=" " + ingredientePrato.getIngrediente().getUnidadeMedida().getSigla()%></td>
-                                </tr>
-                                <%}%>
-                            </tbody>
-                        </table>
-                        <table class="col s5 offset-s2 centered striped">
-                            <thead>
-                                <tr>
-                                    <th data-field="id">Ingrediente</th>
-                                    <th data-field="name">Quantidade</th>
-                                    <th data-field="name">Parcial</th>
-                                    <th data-field="name">Sobras</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <%for (IngredientePrato ingredientePrato : ingredientesPrato) {
-
-                                        int quantidadeIngrediente = refeicaoDao.quantidadeIngredientePorIntervalo(ingredientePrato.getIngrediente(), intervalo);
-                                %>
-                                <tr>
-                                    <td><%=ingredientePrato.getIngrediente().getNome()%></td>
-                                    <td><%=String.format("%.2f", ingredientePrato.getQuantidade() * quantidadeIngrediente)%> <%=" " + ingredientePrato.getIngrediente().getUnidadeMedida().getSigla()%></td>
-                                    <td><%=quantidadeIngrediente%></td>
-                                    <td class="red-text"><%=String.format("%.2f", (ingredientePrato.getQuantidade() * quantidadeEsperada) - (ingredientePrato.getQuantidade() * quantidadeIngrediente))%><%=" " + ingredientePrato.getIngrediente().getUnidadeMedida().getSigla()%></td>
-                                </tr>
-                                <%}%>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="row center">
-                        <a class="waves-effect waves-light btn" href="imprimirRelatorio.jsp?intervalo=<%=intervalo.getId()%>">Imprimir</a>
-                        <a class="waves-effect waves-light btn" href="index.jsp">Fechar</a>
+                    <div class="col s5 offset-s2 center">
+                        <h5>Total de Alunos Servidos: <%=quantidadeTotal%></h5>
                     </div>
                 </div>
+                <div class="row hide-on-med-and-down">
+                    <table class="col s5  centered striped">
+                        <thead>
+                            <tr>
+                                <th data-field="id">Ingrediente</th>
+                                <th data-field="name">Quantidade</th>
+                            </tr>
+                        </thead>
 
+                        <tbody>
+                            <%for (IngredientePrato ingredientePrato : ingredientesPrato) {%>
+                            <tr>
+                                <td><%=ingredientePrato.getIngrediente().getNome()%></td>
+                                <td><%=String.format("%.2f", ingredientePrato.getQuantidade() * quantidadeEsperada)%> <%=" " + ingredientePrato.getIngrediente().getUnidadeMedida().getSigla()%></td>
+                            </tr>
+                            <%}%>
+                        </tbody>
+                    </table>
+                    <table class="col s5 offset-s2 centered striped">
+                        <thead>
+                            <tr>
+                                <th data-field="id">Ingrediente</th>
+                                <th data-field="name">Quantidade</th>
+                                <th data-field="name">Parcial</th>
+                                <th data-field="name">Sobras</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <%for (IngredientePrato ingredientePrato : ingredientesPrato) {
+
+                                    int quantidadeIngrediente = refeicaoDao.quantidadeIngredientePorIntervalo(ingredientePrato.getIngrediente(), intervalo);
+                            %>
+                            <tr>
+                                <td><%=ingredientePrato.getIngrediente().getNome()%></td>
+                                <td><%=String.format("%.2f", ingredientePrato.getQuantidade() * quantidadeIngrediente)%> <%=" " + ingredientePrato.getIngrediente().getUnidadeMedida().getSigla()%></td>
+                                <td><%=quantidadeIngrediente%></td>
+                                <td class="red-text"><%=String.format("%.2f", (ingredientePrato.getQuantidade() * quantidadeEsperada) - (ingredientePrato.getQuantidade() * quantidadeIngrediente))%><%=" " + ingredientePrato.getIngrediente().getUnidadeMedida().getSigla()%></td>
+                            </tr>
+                            <%}%>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row hide-on-med-and-up">
+                    <table class="col s12 centered striped">
+                        <thead>
+                            <tr>
+                                <th data-field="id">Ingrediente</th>
+                                <th data-field="name">Quantidade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%for (IngredientePrato ingredientePrato : ingredientesPrato) {%>
+                            <tr>
+                                <td><%=ingredientePrato.getIngrediente().getNome()%></td>
+                                <td><%=String.format("%.2f", ingredientePrato.getQuantidade() * quantidadeEsperada)%> <%=" " + ingredientePrato.getIngrediente().getUnidadeMedida().getSigla()%></td>
+                            </tr>
+                            <%}%>
+                        </tbody>
+                    </table>
+                    <div class="row"></div>
+                    <table class="col s12 centered striped">
+                        <thead>
+                            <tr>
+                                <th data-field="id">Ingrediente</th>
+                                <th data-field="name">Quantidade</th>
+                                <th data-field="name">Parcial</th>
+                                <th data-field="name">Sobras</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <%for (IngredientePrato ingredientePrato : ingredientesPrato) {
+
+                                    int quantidadeIngrediente = refeicaoDao.quantidadeIngredientePorIntervalo(ingredientePrato.getIngrediente(), intervalo);
+                            %>
+                            <tr>
+                                <td><%=ingredientePrato.getIngrediente().getNome()%></td>
+                                <td><%=String.format("%.2f", ingredientePrato.getQuantidade() * quantidadeIngrediente)%> <%=" " + ingredientePrato.getIngrediente().getUnidadeMedida().getSigla()%></td>
+                                <td><%=quantidadeIngrediente%></td>
+                                <td class="red-text"><%=String.format("%.2f", (ingredientePrato.getQuantidade() * quantidadeEsperada) - (ingredientePrato.getQuantidade() * quantidadeIngrediente))%><%=" " + ingredientePrato.getIngrediente().getUnidadeMedida().getSigla()%></td>
+                            </tr>
+                            <%}%>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="row center">
+                    <a target="_blank" class="waves-effect waves-light btn" href="imprimirRelatorio.jsp?intervalo=<%=intervalo.getId()%>">Imprimir</a>
+                    <a class="waves-effect waves-light btn" href="index.jsp">Fechar</a>
+                </div>
             </div>
 
-        </main>
+        </div>
+    </main>
 
 
 
-    </body>
+</body>
 </html>
 

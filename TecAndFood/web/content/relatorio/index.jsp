@@ -42,6 +42,11 @@
         <script type="text/javascript" src="../../js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="../../js/bin/materialize.min.js"></script>
         <script src="../../js/script.js"></script>
+        <script>
+            $(document).ready(function(){                
+                $(".nav-wrapper ul li:nth-child(5)").addClass("active");
+            });
+        </script>
     </head>
     <body onload="setContent()" onresize="setContent()">
         <%@include file="../navbar.jsp" %>
@@ -67,7 +72,7 @@
                                         intervalos = intervaloDao.listar(i * 10);
                                 for (Intervalo intervalo : intervalos) {%>
                                 <tr>
-                                    <td><a href="../../relatorio.jsp?intervalo=<%= intervalo.getId()%>"><%= intervalo.dataHora()%></a></td>
+                                    <td><a href="relatorio.jsp?intervalo=<%= intervalo.getId()%>"><%= intervalo.dataHora()%></a></td>
                                 </tr>
                                 <% }
                             i++;%>
