@@ -55,11 +55,11 @@ public class Login extends HttpServlet {
                             usuarioDao.getCon().commit();
                             conexao.fechar();
                             request.getSession(true).setAttribute("usuario", login);
-                            logger.logInfo("Usuario " + login.getNome() + " logado com sucesso.");
-                            logger.fileHandler.close();
+                            //logger.logInfo("Usuario " + login.getNome() + " logado com sucesso.");
+                            //logger.fileHandler.close();
                             response.sendRedirect("home.jsp");
                         } catch (SQLException ex) {
-                            logger.logSevere("Login: falha ao logar(commit). e=4. SQLException: ", ex);
+                            //logger.logSevere("Login: falha ao logar(commit). e=4. SQLException: ", ex);
                             conexao.fechar();
                             response.sendRedirect("index.jsp?e=4");
                         }/*
@@ -77,17 +77,17 @@ public class Login extends HttpServlet {
                         }
                     }*/
                 } else {
-                    logger.logWarning("Login: tentativa de entrada de usuário desativado: " + login.getUsername() +".");
+                    //logger.logWarning("Login: tentativa de entrada de usuário desativado: " + login.getUsername() +".");
                     conexao.fechar();
                     response.sendRedirect("index.jsp?e=6");
                 }
             } else {
-                logger.logWarning("Login: tentativa de entrada de usuário inexistente: " + usuario.getUsername() +".");
+                //logger.logWarning("Login: tentativa de entrada de usuário inexistente: " + usuario.getUsername() +".");
                 conexao.fechar();
                 response.sendRedirect("index.jsp?e=3");
             }
         } else {
-            logger.logWarning("Login: tentativa de entrada de usuário sem preenchimento dos campos.");
+            //logger.logWarning("Login: tentativa de entrada de usuário sem preenchimento dos campos.");
             conexao.fechar();
             response.sendRedirect("index.jsp?e=1");
         }

@@ -32,6 +32,8 @@
     Intervalo intervalo = intervaloDao.buscarUltimo();
 
     int quantidadeTotal = refeicaoDao.quantidadeTotalPorIntervalo(intervalo);
+    DateFormat dfmt = new SimpleDateFormat("EEEE, d 'de' MMMM 'de' yyyy");
+    Date hoje = Calendar.getInstance(Locale.getDefault()).getTime();
 %>
 <html>
     <head>
@@ -41,27 +43,29 @@
         <link rel="stylesheet" href="css/style.css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <style>
-            .header{margin-top: 10px}
+            .titulo{
+                display: block;
+                padding: 10px;
+                width: 100%;
+                background-color: #4f81bd;
+                color: #fff;
+                font-weight:bold;
+                text-align: center;
+                margin-top: 15px;
+            }
+            .titulo h5{font-weight: bold;}
+            .header{margin: 0px !important}
+            tr:last-child{border-bottom: 1px solid grey}
             @media print{
-                * {font-family: Arial, Helvetica, sans-serif; border: none; outline: none}
-                body{margin:0px}
-                sidebar{display: none;}
-                content{
-                    width: 100% !important; float: none !important; margin: 0px !important; background-color: #dedede !important}
-                h1 { 
-                    font-size: 14px !important; 
-                    text-align: center !important;
-                }
-                h3, h4 {
-                    font-size: 12px  !important;
-                    border-bottom: 1px solid #000 !important;
-                    margin-left: -35px !important;
-                    text-transform: capitalize !important
-                }
-                table{border: 1px solid #000  !important; width: 100%  !important; padding: 0px; margin: 0px}
-                td{border-left: none  !important}
-                tr td, th{font-size: 10px  !important}  
-                th{font-weight: bold !important}
+                .titulo{margin-top: 0px}
+                .titulo h5{font-size: 20px !important; font-weight: bold;}
+                * {border: none; outline: none;}
+                body{margin:0px;  background: #fff}
+                tr td{font-size: 12px  !important; padding: 5px !important}
+                p{ font-size: 12px !important}
+                thead tr{border-top: 1px solid grey; border-bottom: 1px solid grey;}
+                tr{line-height: 1em !important}
+                th{font-weight: bold !important; font-size: 12px !important; padding: 5px !important}
                 @page{
                     margin-top: 0cm !important;
                     margin-left: 1cm !important;
@@ -77,15 +81,18 @@
     <main>
         <div class="container">
             <div class="row">
-                <h5 class="header">
-                    <%
-                        DateFormat dfmt = new SimpleDateFormat("EEEE, d 'de' MMMM 'de' yyyy");
-                        Date hoje = Calendar.getInstance(Locale.getDefault()).getTime();%>
-                    <span><%=dfmt.format(hoje)%> </span>
-                </h5>
-                <p class="card-title black-text">Lanche da Manhã: Leite, biscoito salgado integral, mel e uma maçã.</p>
-                <p>Quantidade de alunos esperada: ${param.quantidade}</p>
-                <p>Quantidade de refeições entregues: <%=quantidadeTotal%></p>
+                <div class="titulo">
+                    <h5 class="header">Tec&Food - <%=dfmt.format(hoje)%> - Lanche da Manhã</h5>
+                </div>
+                <div class="col s12">
+                    <p class="card-title black-text">Cardápio: Leite, biscoito salgado integral, mel e uma maçã.</p>
+                </div>
+                <div class="col s5">
+                    <p>Total de alunos esperado: ${param.quantidade}</p>
+                </div>
+                <div class="col s5 offset-s1">
+                    <p>Total de alunos servidos: <%=quantidadeTotal%></p>
+                </div>
             </div>
             <div class="row ">
                 <table class="col s12 centered striped">
@@ -108,14 +115,6 @@
                             <td class="red-text"><%=String.format("%.2f", (ingredientePrato.getQuantidade() * quantidade) - (ingredientePrato.getQuantidade() * quantidadeIngrediente))%><%=" " + ingredientePrato.getIngrediente().getUnidadeMedida().getSigla()%></td>
                         </tr>
                         <%}%>
-                        <tr>
-                            <td colspan="2"><h5>Totais</h5></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-
-                        </tr>
                     </tbody>
                 </table>
             </div>
