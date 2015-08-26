@@ -102,6 +102,10 @@
                                     <input type="text" name="nome" placeholder="Nome Completo" id="nome" required />
                                     <label for="nome">Nome Completo</label>
                                 </div>
+                                <div class="input-field col s12">
+                                    <input type="email" name="email" placeholder="Email" id="email" required />
+                                    <label for="email">Email</label>
+                                </div>
                                 <div class="input-field col s5">
                                     <input type="text" name="rg" placeholder="RG" id="rg" required />
                                     <label for="rg">RG</label>
