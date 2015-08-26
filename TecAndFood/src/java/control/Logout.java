@@ -3,7 +3,7 @@ package control;
 import dao.UsuarioDao;
 //import dao.util.AtividadeDao;
 import dao.util.Conexao;
-import java.io.File;
+//import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -24,7 +24,7 @@ public class Logout extends HttpServlet {
             throws ServletException, IOException, SQLException {
         Usuario usuario = (Usuario) request.getSession(false).getAttribute("usuario");
         String location = (String) request.getSession(false).getAttribute("location");
-        LoggerTec log =  (LoggerTec) request.getAttribute("logger");
+        LoggerTec log =  new LoggerTec();
         
         Conexao conexao = new Conexao();
         conexao.setConexao(conexao.conectar());
@@ -68,28 +68,28 @@ public class Logout extends HttpServlet {
                 //atividadeDao.con.commit();
                 usuarioDao.getCon().commit();
                 conexao.fechar();
-                log.logInfo("Usuario " + usuario.getNome() + " saiu do sistema com sucesso.");
+                //log.logInfo("Usuario " + usuario.getNome() + " saiu do sistema com sucesso.");
                 /*LoggerSab logger = new LoggerSab();
                 logger.logInfo("Usuario " + usuario.getNome() + " saiu do sistema com sucesso.");
                 logger.fileHandler.close();*/
-                log.fileHandler.close();
+                //log.fileHandler.close();
                 response.sendRedirect("index.jsp?e=0");
             } catch (SQLException ex) {
                 conexao.fechar();
-                log.logSevere("Tentativa de logout ("+ usuario.getNome() +") mal sucedida. SQLException: ", ex);
+                //log.logSevere("Tentativa de logout ("+ usuario.getNome() +") mal sucedida. SQLException: ", ex);
                 /*LoggerSab logger = new LoggerSab();
                 logger.logInfo("Usuario " + usuario.getNome() + " saiu do sistema com sucesso.");
                 logger.fileHandler.close();*/
-                log.fileHandler.close();
+                //log.fileHandler.close();
                 System.out.println("SQLException em Logout: " + ex.getMessage());
                 response.sendRedirect(location + "?e=9"); //erro atividade 
             } catch (IllegalStateException ex) {
                 conexao.fechar();
-                log.logSevere("Tentativa de logout em sessão inválida. IllegalStateException: ", ex);
+                //log.logSevere("Tentativa de logout em sessão inválida. IllegalStateException: ", ex);
                 /*LoggerSab logger = new LoggerSab();
                 logger.logInfo("Usuario " + usuario.getNome() + " saiu do sistema com sucesso.");
                 logger.fileHandler.close();*/
-                log.fileHandler.close();
+                //log.fileHandler.close();
                 System.out.println("IllegalStateException em Logout: " + ex.getMessage());
                 response.sendRedirect(location + "?e=9"); //erro atividade 
             }/*
