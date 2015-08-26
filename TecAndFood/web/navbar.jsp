@@ -33,6 +33,7 @@
                     <li><a class="dropdown-button" data-beloworigin="true" href="#!" data-activates="drop-ingrediente">Ingredientes<div class="icons right">&#x25bc;</div></a></li>
                     <li><a class="dropdown-button" data-beloworigin="true" href="#!" data-activates="drop-cardapio">Cardápios<div class="icons right">&#x25bc;</div></a></li>
                     <li><a class="dropdown-button" data-beloworigin="true" href="#!" data-activates="drop-relatorio">Relatórios<div class="icons right">&#x25bc;</div></a></li>
+                    <li><a href="Logout" >Sair</a></li>
                 </ul>
             </div>
         </nav>
