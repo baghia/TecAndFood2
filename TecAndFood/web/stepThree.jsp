@@ -64,7 +64,7 @@
                 <p>Tem certeza que deseja finalizar o intervalo?</p>
             </div>
             <div class="modal-footer">
-                <a href="control/FecharIntervalo?quantidade=${param.quantidade}" class=" modal-action modal-close waves-effect waves-green btn-flat">Sim</a>
+                <a href="control/FecharIntervalo" class=" modal-action modal-close waves-effect waves-green btn-flat">Sim</a>
                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Não</a>
             </div>
         </div>

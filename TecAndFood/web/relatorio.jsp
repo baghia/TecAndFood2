@@ -22,15 +22,19 @@
     Prato prato = new Prato();
     prato.setId(1);
     ArrayList<IngredientePrato> ingredientesPrato = ingredientePratoDao.buscarPorPrato(prato);
-    int quantidade = Integer.parseInt(request.getParameter("quantidade"));
 
     RefeicaoDao refeicaoDao = new RefeicaoDao(conexao, new LoggerTec());
     refeicaoDao.setCon(con);
-    
+
     IntervaloDao intervaloDao = new IntervaloDao(conexao, new LoggerTec());
     intervaloDao.setCon(con);
-    Intervalo intervalo = intervaloDao.buscarUltimo();
-    
+    Intervalo intervalo = null;
+    if (request.getParameter("intervalo") != null) {
+        intervalo = intervaloDao.buscarPorId(Integer.parseInt(request.getParameter("intervalo")));
+    } else {
+        intervalo = intervaloDao.buscarUltimo();
+    }
+    int quantidadeEsperada = intervalo.getQtdEsperada();
     int quantidadeTotal = refeicaoDao.quantidadeTotalPorIntervalo(intervalo);
 %>
 <html>
@@ -48,12 +52,16 @@
             <div class="container">
                 <div id="content" class="center card" style="padding: 20px;" >
                     <div class="row">
+
+                        <h6><%=intervalo.dataHora()%></h6>
+                    </div>
+                    <div class="row">
                         <div class="col s4 offset-s1 center">
-                            <h5 >Esperado</h5>
-                            <h5 >${param.quantidade}</h5>
+                            <h5 >Quantidade de Alunos Esperados</h5>
+                            <h5 ><%=quantidadeEsperada%></h5>
                         </div>
                         <div class="col s4 offset-s2 center">
-                            <h5>Total</h5>
+                            <h5>Quantidade de Alunos Servidos</h5>
                             <h5><%=quantidadeTotal%></h5>
                         </div>
                     </div>
@@ -72,7 +80,7 @@
                                 <%for (IngredientePrato ingredientePrato : ingredientesPrato) {%>
                                 <tr>
                                     <td><%=ingredientePrato.getIngrediente().getNome()%></td>
-                                    <td><%=String.format("%.2f", ingredientePrato.getQuantidade() * quantidade)%> <%=" " + ingredientePrato.getIngrediente().getUnidadeMedida().getSigla()%></td>
+                                    <td><%=String.format("%.2f", ingredientePrato.getQuantidade() * quantidadeEsperada)%> <%=" " + ingredientePrato.getIngrediente().getUnidadeMedida().getSigla()%></td>
                                 </tr>
                                 <%}%>
                             </tbody>
@@ -89,14 +97,14 @@
 
                             <tbody>
                                 <%for (IngredientePrato ingredientePrato : ingredientesPrato) {
-                                    
-                                    int quantidadeIngrediente = refeicaoDao.quantidadeIngredientePorIntervalo(ingredientePrato.getIngrediente(), intervalo);
+
+                                        int quantidadeIngrediente = refeicaoDao.quantidadeIngredientePorIntervalo(ingredientePrato.getIngrediente(), intervalo);
                                 %>
                                 <tr>
                                     <td><%=ingredientePrato.getIngrediente().getNome()%></td>
                                     <td><%=String.format("%.2f", ingredientePrato.getQuantidade() * quantidadeIngrediente)%> <%=" " + ingredientePrato.getIngrediente().getUnidadeMedida().getSigla()%></td>
                                     <td><%=quantidadeIngrediente%></td>
-                                    <td class="red-text"><%=String.format("%.2f", (ingredientePrato.getQuantidade() * quantidade)-(ingredientePrato.getQuantidade() * quantidadeIngrediente))%><%=" " + ingredientePrato.getIngrediente().getUnidadeMedida().getSigla()%></td>
+                                    <td class="red-text"><%=String.format("%.2f", (ingredientePrato.getQuantidade() * quantidadeEsperada) - (ingredientePrato.getQuantidade() * quantidadeIngrediente))%><%=" " + ingredientePrato.getIngrediente().getUnidadeMedida().getSigla()%></td>
                                 </tr>
                                 <%}%>
                             </tbody>
