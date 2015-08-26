@@ -51,7 +51,7 @@
         <%@include file="../navbar.jsp" %>
     <main>
         <div class="container">
-            <div id="content" class="center card " style="position: absolute; padding: 10px;" >
+            <div id="content" class="center card">
                 <div class="row  grey lighten-5  black-text card">
                     <h5 class="col s4 offset-s4">Programação Diária</h5>
                 </div>
@@ -95,11 +95,15 @@
                 </table>
                 <%
                     if (paginas > 1) { %>
-                <ul class="pagination">
-                    <% for (i = 0; i < paginas; i++) {%>
-                    <li class="waves-effect"><a href="#!"><%= i + 1%></a></li>
+                <ul class="pagination hide-on-med-and-down col offset-s2">
+                        <% for (i = 0; i < paginas; i++) {%>
+                        <li class="waves-effect <% if (i == 0) {
+                                out.println(" active ");
+                            }%>">
+                            <a page="<%= i%>"><%= i + 1%></a>
+                        </li>
                         <% } %>
-                </ul>
+                    </ul>
                 <% }
                     } else {
                         out.println("<h5>Nao há cardápios cadastrados</h5>");

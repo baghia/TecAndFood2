@@ -59,17 +59,6 @@
                 $("[name=cpf").mask("999.999.999-99");
                 $("[name=rg]").mask("9.999.999");
                 $("[name=data]").mask("99/99/9999");
-
-                $(".pagination li a").click(function() {
-                    $("#carregando").fadeIn('fast');
-                    $(".pagination li.active").removeClass("active");
-                    $(this).parent("li").addClass("active");
-                    var offset = $(this).attr("page");
-                    $("table").children("tbody").addClass("bodyInativo");
-                    $("#p" + offset).removeClass("bodyInativo");
-                    $("#carregando").fadeOut('fast');
-                });
-
             <%
                 if (e > -1) {
                     switch (e) {
@@ -78,9 +67,6 @@
                     }
                 }
             %>
-                   /* $(".button-collapse").click(function(){
-                        $("#nav-mobile").toggle();
-                    });*/
             });
         </script>
     </head>
@@ -93,8 +79,14 @@
         <div class="container">
             <div id="content" class="center card">
                 <div class="row  grey lighten-5  black-text card">
-                    <h5 class="">Alunos Cadastrados</h5>
-                    <a class="waves-effect waves-light btn modal-trigger" href="#novo">Cadastrar aluno</a>                    
+                    <div class="hide-on-med-and-down">
+                        <h5 class="col s4 offset-s1">Alunos Cadastrados</h5>
+                        <a class="col s3 offset-s1 waves-effect waves-light btn modal-trigger" href="#novo">Cadastrar aluno</a>
+                    </div>
+                    <div class="hide-on-med-and-up">
+                        <h5>Alunos Cadastrados</h5>
+                        <a class="waves-effect waves-light btn modal-trigger" href="#novo">Cadastrar aluno</a>
+                    </div>
                     <div id="novo" class="modal">
                         <form method="post" action="../../control/NovoAluno">
                             <div class="modal-content">
@@ -143,13 +135,13 @@
                                 <th data-field='matricula'>Matrícula</th>
                                 <th data-field='nascimento'>Data de Nascimento</th>
                                 <th data-field='status'>Status</th>
-                                <th></th>
+                                <!--th></th-->
                             </tr>
                         </thead>
                         <thead class="hide-on-med-and-up">
                             <tr>
-                                <!--th></th>
                                 <th></th>
+                                <!--th></th>
                                 <th></th-->
                                 <th data-field='nome'>Nome</th>
                                 <th data-field='matricula'>Matrícula</th>
@@ -164,8 +156,8 @@
                                     alunos = alunoDao.listarAtivos(i * 10);
                                     for (Aluno aluno : alunos) {%>
                             <tr>
-                                <!--td></td>
-                                <td class='icon edit'><a></a></td>
+                                <td></td>
+                                <!--td class='icon edit'><a></a></td>
                                 <td class='icon del'><a></a></td-->
                                 <td><%= aluno.getNome()%></td>
                                 <td><%= aluno.getMatricula()%></td>
@@ -175,20 +167,22 @@
                                 <!--td></td-->
                             </tr>
                             <% }
-                            i++;%>
+                                i++;%>
                         </tbody>                        
-                        <tbody id='p<%= i%>' style="display: none">
+                        <tbody id='p<%= i%>' class="bodyInativo">
                             <% }%>
                         </tbody>
                     </table>
                     <%
-                    if (paginas > 1) { %>
-                    <ul class="pagination hide-on-med-and-down">
+                        if (paginas > 1) { %>
+                    <ul class="pagination hide-on-med-and-down col offset-s2">
                         <% for (i = 0; i < paginas; i++) {%>
-                        <li class="waves-effect <% if(i == 0){ out.println(" active "); }%>">
+                        <li class="waves-effect <% if (i == 0) {
+                                out.println(" active ");
+                            }%>">
                             <a page="<%= i%>"><%= i + 1%></a>
                         </li>
-                            <% } %>
+                        <% } %>
                     </ul>
                     <% }
                         } else {
@@ -200,6 +194,6 @@
     </main>
 
 </body>
-        <link rel="stylesheet" href="../../css/style.css"/>
+<link rel="stylesheet" href="../../css/style.css"/>
 </html>
 

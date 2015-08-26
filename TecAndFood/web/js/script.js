@@ -7,6 +7,15 @@
 $(document).ready(function() {
 
     $(".button-collapse").sideNav();
+    $(".pagination li a").click(function() {
+        $("#carregando").fadeIn('fast');
+        $(".pagination li.active").removeClass("active");
+        $(this).parent("li").addClass("active");
+        var offset = $(this).attr("page");
+        $("table").children("tbody").addClass("bodyInativo");
+        $("#p" + offset).removeClass("bodyInativo");
+        $("#carregando").fadeOut('fast');
+    });
 //    $(".dropdown-button").dropdown({
 //        inDuration: 300,
 //        outDuration: 225,
