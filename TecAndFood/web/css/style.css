@@ -1,6 +1,5 @@
 body{
     background-color: #fcfcfc;
-
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -37,7 +36,7 @@ main {
     font-size: 14px;
 }
 .bodyInativo{display: none}
-
+table.responsible-table body.bodyInativo{display: none !important}
 .icon a { width: 30px; height: 30px; cursor: pointer; display: block; margin: 0 auto; background: center no-repeat; transition: all linear 0.1s; -webkit-transition: all linear 0.1s }
 .edit a { background-image: url(../images/icons/page_edit.png) }
 .edit a:hover { background-image: url(../images/icons/page_edit_hover.png) }
@@ -60,3 +59,11 @@ main {
     display: none
 }
 .loading{ width: 150px; height: 20px; border-radius: 10px; border: 1px solid #555; background:url(../images/loading.gif) no-repeat; overflow: none; margin: 20% auto}
+#logo-container {
+    height: 57px;
+    margin-bottom: 32px;
+}
+#nav-mobile ul>li>a{padding: 10px; color: #2196f3}
+.collapsible-accordion ul>li>a{color: #555}
+#nav-mobile li.logo a.brand-logo{margin-top: 10px}
+#nav-mobile{}

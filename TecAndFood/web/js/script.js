@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 
-$(document).ready(function () {
+$(document).ready(function() {
+
+    $(".button-collapse").sideNav();
 //    $(".dropdown-button").dropdown({
 //        inDuration: 300,
 //        outDuration: 225,
@@ -14,12 +16,12 @@ $(document).ready(function () {
 //        belowOrigin: true// Displays dropdown below the button
 //    });
 
-    $("#select-ingredientes").change(function () {
+    $("#select-ingredientes").change(function() {
         var unidadeDeMedida = $("#select-ingredientes option:selected").attr("id");
         $("#unidadeMedida").text(unidadeDeMedida);
     });
     var cont = 0;
-    $("#adicionarIngrediente").click(function () {
+    $("#adicionarIngrediente").click(function() {
         var nome = $("#select-ingredientes option:selected").text();
         var quantidade = $("#quantidade_informada").val();
         var id = $("#select-ingredientes option:selected").attr("value");
@@ -45,14 +47,14 @@ $(document).ready(function () {
         setContent();
     });
 
-    $("#matricula").keydown(function (e) {
+    $("#matricula").keydown(function(e) {
         if (e.keyCode == 13) {
             var matricula = $("#matricula").val();
             var request = $.ajax({
                 type: "POST",
                 url: "control/BuscarAluno",
                 data: {matricula: matricula},
-                success: function (retorno) {
+                success: function(retorno) {
                     var parsedJson = $.parseJSON(retorno);
                     if (parsedJson.error) {
                         $("#matricula").val("");
@@ -83,14 +85,14 @@ $(document).ready(function () {
     $('.modal-trigger').leanModal();
     $('.tooltipped').tooltip({delay: 50});
     $('select').material_select();
-    $('.btn-active').on("click", function () {
+    $('.btn-active').on("click", function() {
         if ($(this).hasClass("disabled")) {
             $(this).removeClass("disabled");
         } else {
             $(this).addClass("disabled");
         }
     });
-    $("#submit").click(function () {
+    $("#submit").click(function() {
         submit();
     });
 
@@ -102,7 +104,7 @@ $(document).ready(function () {
         $(".hidden").hide(500);
         var matricula = $("#matricula").val();
         var alimentos_selecionados = [];
-        $(".btn-active").each(function () {
+        $(".btn-active").each(function() {
             if (!$(this).hasClass("disabled")) {
                 alimentos_selecionados.push($(this).attr("id"));
             }
@@ -112,15 +114,15 @@ $(document).ready(function () {
             url: "control/InserirRefeicao",
             data: {matricula: matricula, alimentos_selecionados: alimentos_selecionados.toString()}
         });
-        request.done(function (msg) {
+        request.done(function(msg) {
             cont++;
             $("#quantidadePassadas").text(cont);
 //            alert("Data Saved: " + msg);
         });
-        request.fail(function (jqXHR, textStatus) {
+        request.fail(function(jqXHR, textStatus) {
 //            alert("Request failed: " + textStatus);
         });
-        $(".btn-active").each(function () {
+        $(".btn-active").each(function() {
             if ($(this).hasClass("disabled")) {
                 $(this).removeClass("disabled");
             }
@@ -155,7 +157,7 @@ function abrirLightbox(id) {
 function fecharLightbox() {
     $("lightbox").fadeOut('fast');
 }
-$(document).keydown(function (e) {
+$(document).keydown(function(e) {
     if ((e.which == 74) && (e.ctrlKey || e.metaKey)) {
         e.preventDefault();
     }

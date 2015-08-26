@@ -50,9 +50,8 @@
         <title>Alunos - Tec And Food v<%= Sistema.versao%></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="../../css/materialize.css"/>
-        <link rel="stylesheet" href="../../css/style.css"/>
         <script type="text/javascript" src="../../js/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="../../js/bin/materialize.min.js"></script>
+        <script src="../../js/bin/materialize.js" type="text/javascript"></script>
         <script src="../../js/jquery.masquedinput.js" type="text/javascript"></script>
         <script src="../../js/script.js"></script>
         <script>
@@ -79,6 +78,9 @@
                     }
                 }
             %>
+                   /* $(".button-collapse").click(function(){
+                        $("#nav-mobile").toggle();
+                    });*/
             });
         </script>
     </head>
@@ -89,10 +91,10 @@
         <%@include file="../navbar.jsp" %>
     <main>
         <div class="container">
-            <div id="content" class="center card ">
+            <div id="content" class="center card">
                 <div class="row  grey lighten-5  black-text card">
-                    <h5 class="col s4 offset-s4">Alunos Cadastrados</h5>
-                    <a class="col s3 waves-effect waves-light btn modal-trigger" href="#novo">Cadastrar aluno</a>                    
+                    <h5 class="">Alunos Cadastrados</h5>
+                    <a class="waves-effect waves-light btn modal-trigger" href="#novo">Cadastrar aluno</a>                    
                     <div id="novo" class="modal">
                         <form method="post" action="../../control/NovoAluno">
                             <div class="modal-content">
@@ -132,16 +134,28 @@
                     if (paginas > 0) { %>
                 <div class="row s10 offset-s1">
                     <table class='bordered hoverable striped responsive-table'>
-                        <thead>
+                        <thead class="hide-on-med-and-down">
                             <tr>
                                 <th></th>
-                                <th></th>
-                                <th></th>
+                                <!--th></th>
+                                <th></th-->
                                 <th data-field='nome'>Nome</th>
                                 <th data-field='matricula'>Matrícula</th>
                                 <th data-field='nascimento'>Data de Nascimento</th>
                                 <th data-field='status'>Status</th>
                                 <th></th>
+                            </tr>
+                        </thead>
+                        <thead class="hide-on-med-and-up">
+                            <tr>
+                                <!--th></th>
+                                <th></th>
+                                <th></th-->
+                                <th data-field='nome'>Nome</th>
+                                <th data-field='matricula'>Matrícula</th>
+                                <th data-field='nascimento'>Data Nas.</th>
+                                <th data-field='status'>Status</th>
+                                <!--th></th-->
                             </tr>
                         </thead>
                         <tbody id='p0'>
@@ -150,28 +164,30 @@
                                     alunos = alunoDao.listarAtivos(i * 10);
                                     for (Aluno aluno : alunos) {%>
                             <tr>
-                                <td></td>
+                                <!--td></td>
                                 <td class='icon edit'><a></a></td>
-                                <td class='icon del'><a></a></td>
+                                <td class='icon del'><a></a></td-->
                                 <td><%= aluno.getNome()%></td>
                                 <td><%= aluno.getMatricula()%></td>
                                 <td><%= aluno.dataNascimento()%></td>
                                 <% if (aluno.getStatus()) { %><td>Ativo</td>
                                 <% } else { %> <td>Inativo</td> <% } %>
-                                <td></td>
+                                <!--td></td-->
                             </tr>
                             <% }
                             i++;%>
                         </tbody>                        
-                        <tbody id='p<%= i%>' class='bodyInativo'>
+                        <tbody id='p<%= i%>' style="display: none">
                             <% }%>
                         </tbody>
                     </table>
                     <%
                     if (paginas > 1) { %>
-                    <ul class="pagination">
+                    <ul class="pagination hide-on-med-and-down">
                         <% for (i = 0; i < paginas; i++) {%>
-                        <li class="waves-effect"><a page="<%= i%>"><%= i + 1%></a></li>
+                        <li class="waves-effect <% if(i == 0){ out.println(" active "); }%>">
+                            <a page="<%= i%>"><%= i + 1%></a>
+                        </li>
                             <% } %>
                     </ul>
                     <% }
@@ -184,5 +200,6 @@
     </main>
 
 </body>
+        <link rel="stylesheet" href="../../css/style.css"/>
 </html>
 
