@@ -112,7 +112,8 @@
                     </div>
 
                     <div class="row center">
-                        <a class="waves-effect waves-light btn" href="index.jsp">Fechar Relatório</a>
+                        <a class="waves-effect waves-light btn" href="imprimirRelatorio.jsp?intervalo=<%=intervalo.getId()%>">Imprimir</a>
+                        <a class="waves-effect waves-light btn" href="index.jsp">Fechar</a>
                     </div>
                 </div>
 
